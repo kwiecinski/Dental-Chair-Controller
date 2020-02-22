@@ -1,0 +1,918 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"25 ./define.h
+[s S68 `uc 1 `uc 1 `uc 1 `uc 1 ]
+[n S68 . down_button up_button down_limit_sw up_limit_sw ]
+"234 /opt/microchip/xc8/v2.10/pic/include/pic16f819.h
+[; ;/opt/microchip/xc8/v2.10/pic/include/pic16f819.h: 234:     struct {
+[s S8 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S8 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
+"233
+[; ;/opt/microchip/xc8/v2.10/pic/include/pic16f819.h: 233: typedef union {
+[u S7 `S8 1 ]
+[n S7 . . ]
+"245
+[; ;/opt/microchip/xc8/v2.10/pic/include/pic16f819.h: 245: extern volatile PORTBbits_t PORTBbits __attribute__((address(0x006)));
+[v _PORTBbits `VS7 ~T0 @X0 0 e@6 ]
+"172
+[; ;/opt/microchip/xc8/v2.10/pic/include/pic16f819.h: 172:     struct {
+[s S6 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S6 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 RA7 ]
+"171
+[; ;/opt/microchip/xc8/v2.10/pic/include/pic16f819.h: 171: typedef union {
+[u S5 `S6 1 ]
+[n S5 . . ]
+"183
+[; ;/opt/microchip/xc8/v2.10/pic/include/pic16f819.h: 183: extern volatile PORTAbits_t PORTAbits __attribute__((address(0x005)));
+[v _PORTAbits `VS5 ~T0 @X0 0 e@5 ]
+"54 /opt/microchip/xc8/v2.10/pic/include/pic16f819.h
+[; ;/opt/microchip/xc8/v2.10/pic/include/pic16f819.h: 54: __asm("INDF equ 00h");
+[; <" INDF equ 00h ;# ">
+"61
+[; ;/opt/microchip/xc8/v2.10/pic/include/pic16f819.h: 61: __asm("TMR0 equ 01h");
+[; <" TMR0 equ 01h ;# ">
+"68
+[; ;/opt/microchip/xc8/v2.10/pic/include/pic16f819.h: 68: __asm("PCL equ 02h");
+[; <" PCL equ 02h ;# ">
+"75
+[; ;/opt/microchip/xc8/v2.10/pic/include/pic16f819.h: 75: __asm("STATUS equ 03h");
+[; <" STATUS equ 03h ;# ">
+"161
+[; ;/opt/microchip/xc8/v2.10/pic/include/pic16f819.h: 161: __asm("FSR equ 04h");
+[; <" FSR equ 04h ;# ">
+"168
+[; ;/opt/microchip/xc8/v2.10/pic/include/pic16f819.h: 168: __asm("PORTA equ 05h");
+[; <" PORTA equ 05h ;# ">
+"230
+[; ;/opt/microchip/xc8/v2.10/pic/include/pic16f819.h: 230: __asm("PORTB equ 06h");
+[; <" PORTB equ 06h ;# ">
+"292
+[; ;/opt/microchip/xc8/v2.10/pic/include/pic16f819.h: 292: __asm("PCLATH equ 0Ah");
+[; <" PCLATH equ 0Ah ;# ">
+"312
+[; ;/opt/microchip/xc8/v2.10/pic/include/pic16f819.h: 312: __asm("INTCON equ 0Bh");
+[; <" INTCON equ 0Bh ;# ">
+"374
+[; ;/opt/microchip/xc8/v2.10/pic/include/pic16f819.h: 374: __asm("PIR1 equ 0Ch");
+[; <" PIR1 equ 0Ch ;# ">
+"419
+[; ;/opt/microchip/xc8/v2.10/pic/include/pic16f819.h: 419: __asm("PIR2 equ 0Dh");
+[; <" PIR2 equ 0Dh ;# ">
+"440
+[; ;/opt/microchip/xc8/v2.10/pic/include/pic16f819.h: 440: __asm("TMR1 equ 0Eh");
+[; <" TMR1 equ 0Eh ;# ">
+"447
+[; ;/opt/microchip/xc8/v2.10/pic/include/pic16f819.h: 447: __asm("TMR1L equ 0Eh");
+[; <" TMR1L equ 0Eh ;# ">
+"454
+[; ;/opt/microchip/xc8/v2.10/pic/include/pic16f819.h: 454: __asm("TMR1H equ 0Fh");
+[; <" TMR1H equ 0Fh ;# ">
+"461
+[; ;/opt/microchip/xc8/v2.10/pic/include/pic16f819.h: 461: __asm("T1CON equ 010h");
+[; <" T1CON equ 010h ;# ">
+"529
+[; ;/opt/microchip/xc8/v2.10/pic/include/pic16f819.h: 529: __asm("TMR2 equ 011h");
+[; <" TMR2 equ 011h ;# ">
+"536
+[; ;/opt/microchip/xc8/v2.10/pic/include/pic16f819.h: 536: __asm("T2CON equ 012h");
+[; <" T2CON equ 012h ;# ">
+"607
+[; ;/opt/microchip/xc8/v2.10/pic/include/pic16f819.h: 607: __asm("SSPBUF equ 013h");
+[; <" SSPBUF equ 013h ;# ">
+"614
+[; ;/opt/microchip/xc8/v2.10/pic/include/pic16f819.h: 614: __asm("SSPCON equ 014h");
+[; <" SSPCON equ 014h ;# ">
+"684
+[; ;/opt/microchip/xc8/v2.10/pic/include/pic16f819.h: 684: __asm("CCPR1 equ 015h");
+[; <" CCPR1 equ 015h ;# ">
+"691
+[; ;/opt/microchip/xc8/v2.10/pic/include/pic16f819.h: 691: __asm("CCPR1L equ 015h");
+[; <" CCPR1L equ 015h ;# ">
+"698
+[; ;/opt/microchip/xc8/v2.10/pic/include/pic16f819.h: 698: __asm("CCPR1H equ 016h");
+[; <" CCPR1H equ 016h ;# ">
+"705
+[; ;/opt/microchip/xc8/v2.10/pic/include/pic16f819.h: 705: __asm("CCP1CON equ 017h");
+[; <" CCP1CON equ 017h ;# ">
+"763
+[; ;/opt/microchip/xc8/v2.10/pic/include/pic16f819.h: 763: __asm("ADRESH equ 01Eh");
+[; <" ADRESH equ 01Eh ;# ">
+"770
+[; ;/opt/microchip/xc8/v2.10/pic/include/pic16f819.h: 770: __asm("ADCON0 equ 01Fh");
+[; <" ADCON0 equ 01Fh ;# ">
+"866
+[; ;/opt/microchip/xc8/v2.10/pic/include/pic16f819.h: 866: __asm("OPTION_REG equ 081h");
+[; <" OPTION_REG equ 081h ;# ">
+"936
+[; ;/opt/microchip/xc8/v2.10/pic/include/pic16f819.h: 936: __asm("TRISA equ 085h");
+[; <" TRISA equ 085h ;# ">
+"998
+[; ;/opt/microchip/xc8/v2.10/pic/include/pic16f819.h: 998: __asm("TRISB equ 086h");
+[; <" TRISB equ 086h ;# ">
+"1060
+[; ;/opt/microchip/xc8/v2.10/pic/include/pic16f819.h: 1060: __asm("PIE1 equ 08Ch");
+[; <" PIE1 equ 08Ch ;# ">
+"1105
+[; ;/opt/microchip/xc8/v2.10/pic/include/pic16f819.h: 1105: __asm("PIE2 equ 08Dh");
+[; <" PIE2 equ 08Dh ;# ">
+"1126
+[; ;/opt/microchip/xc8/v2.10/pic/include/pic16f819.h: 1126: __asm("PCON equ 08Eh");
+[; <" PCON equ 08Eh ;# ">
+"1160
+[; ;/opt/microchip/xc8/v2.10/pic/include/pic16f819.h: 1160: __asm("OSCCON equ 08Fh");
+[; <" OSCCON equ 08Fh ;# ">
+"1209
+[; ;/opt/microchip/xc8/v2.10/pic/include/pic16f819.h: 1209: __asm("OSCTUNE equ 090h");
+[; <" OSCTUNE equ 090h ;# ">
+"1267
+[; ;/opt/microchip/xc8/v2.10/pic/include/pic16f819.h: 1267: __asm("PR2 equ 092h");
+[; <" PR2 equ 092h ;# ">
+"1274
+[; ;/opt/microchip/xc8/v2.10/pic/include/pic16f819.h: 1274: __asm("SSPADD equ 093h");
+[; <" SSPADD equ 093h ;# ">
+"1281
+[; ;/opt/microchip/xc8/v2.10/pic/include/pic16f819.h: 1281: __asm("SSPSTAT equ 094h");
+[; <" SSPSTAT equ 094h ;# ">
+"1450
+[; ;/opt/microchip/xc8/v2.10/pic/include/pic16f819.h: 1450: __asm("ADRESL equ 09Eh");
+[; <" ADRESL equ 09Eh ;# ">
+"1457
+[; ;/opt/microchip/xc8/v2.10/pic/include/pic16f819.h: 1457: __asm("ADCON1 equ 09Fh");
+[; <" ADCON1 equ 09Fh ;# ">
+"1516
+[; ;/opt/microchip/xc8/v2.10/pic/include/pic16f819.h: 1516: __asm("EEDATA equ 010Ch");
+[; <" EEDATA equ 010Ch ;# ">
+"1523
+[; ;/opt/microchip/xc8/v2.10/pic/include/pic16f819.h: 1523: __asm("EEADR equ 010Dh");
+[; <" EEADR equ 010Dh ;# ">
+"1530
+[; ;/opt/microchip/xc8/v2.10/pic/include/pic16f819.h: 1530: __asm("EEDATH equ 010Eh");
+[; <" EEDATH equ 010Eh ;# ">
+"1537
+[; ;/opt/microchip/xc8/v2.10/pic/include/pic16f819.h: 1537: __asm("EEADRH equ 010Fh");
+[; <" EEADRH equ 010Fh ;# ">
+"1544
+[; ;/opt/microchip/xc8/v2.10/pic/include/pic16f819.h: 1544: __asm("EECON1 equ 018Ch");
+[; <" EECON1 equ 018Ch ;# ">
+"1595
+[; ;/opt/microchip/xc8/v2.10/pic/include/pic16f819.h: 1595: __asm("EECON2 equ 018Dh");
+[; <" EECON2 equ 018Dh ;# ">
+"12 ./define.h
+[p x FOSC = INTOSCIO ]
+"13
+[p x WDTE = ON ]
+"14
+[p x PWRTE = OFF ]
+"15
+[p x MCLRE = ON ]
+"16
+[p x BOREN = ON ]
+"17
+[p x LVP = OFF ]
+"18
+[p x CPD = OFF ]
+"19
+[p x WRT = OFF ]
+"20
+[p x CCPMX = RB2 ]
+"21
+[p x CP = OFF ]
+"12 ./Interrupts.h
+[; ;./Interrupts.h: 12: volatile unsigned char KlockTimerUp, KlockTimerDown, LimitSwitchTimer;
+[v _KlockTimerUp `Vuc ~T0 @X0 1 e ]
+[v _KlockTimerDown `Vuc ~T0 @X0 1 e ]
+[v _LimitSwitchTimer `Vuc ~T0 @X0 1 e ]
+"25 chair-controll.c
+[; ;chair-controll.c: 25: void UpKeyPress(FLAGS *ptrflag)
+[v _UpKeyPress `(v ~T0 @X0 1 ef1`*S68 ]
+"26
+[; ;chair-controll.c: 26: {
+{
+[e :U _UpKeyPress ]
+"25
+[; ;chair-controll.c: 25: void UpKeyPress(FLAGS *ptrflag)
+[v _ptrflag `*S68 ~T0 @X0 1 r1 ]
+"26
+[; ;chair-controll.c: 26: {
+[f ]
+"27
+[; ;chair-controll.c: 27:     static char klock,timerflag;
+[v F598 `uc ~T0 @X0 1 s klock ]
+[v F599 `uc ~T0 @X0 1 s timerflag ]
+"29
+[; ;chair-controll.c: 29:  if(!klock && !PORTBbits.RB2 && !ptrflag->down_button)
+[e $ ! && && ! != -> F598 `i -> 0 `i ! != -> . . _PORTBbits 0 2 `i -> 0 `i ! != -> . *U _ptrflag 0 `i -> 0 `i 70  ]
+"30
+[; ;chair-controll.c: 30:  {
+{
+"31
+[; ;chair-controll.c: 31:   if(!timerflag)
+[e $ ! ! != -> F599 `i -> 0 `i 71  ]
+"32
+[; ;chair-controll.c: 32:   {
+{
+"33
+[; ;chair-controll.c: 33:    KlockTimerUp=9;
+[e = _KlockTimerUp -> -> 9 `i `uc ]
+"34
+[; ;chair-controll.c: 34:    timerflag=1;
+[e = F599 -> -> 1 `i `uc ]
+"35
+[; ;chair-controll.c: 35:   }else
+}
+[e $U 72  ]
+[e :U 71 ]
+"36
+[; ;chair-controll.c: 36:   {
+{
+"37
+[; ;chair-controll.c: 37:    if(!KlockTimerUp)
+[e $ ! ! != -> _KlockTimerUp `i -> 0 `i 73  ]
+"38
+[; ;chair-controll.c: 38:    {
+{
+"39
+[; ;chair-controll.c: 39:                 if(!PORTBbits.RB2)
+[e $ ! ! != -> . . _PORTBbits 0 2 `i -> 0 `i 74  ]
+"40
+[; ;chair-controll.c: 40:                 {
+{
+"41
+[; ;chair-controll.c: 41:                     klock=1;
+[e = F598 -> -> 1 `i `uc ]
+"42
+[; ;chair-controll.c: 42:                     timerflag=0;
+[e = F599 -> -> 0 `i `uc ]
+"43
+[; ;chair-controll.c: 43:                     ptrflag->up_button=1;
+[e = . *U _ptrflag 1 -> -> 1 `i `uc ]
+"44
+[; ;chair-controll.c: 44:                 }else
+}
+[e $U 75  ]
+[e :U 74 ]
+"45
+[; ;chair-controll.c: 45:                 {
+{
+"46
+[; ;chair-controll.c: 46:                     timerflag=0;
+[e = F599 -> -> 0 `i `uc ]
+"47
+[; ;chair-controll.c: 47:                 }
+}
+[e :U 75 ]
+"48
+[; ;chair-controll.c: 48:    }
+}
+[e :U 73 ]
+"49
+[; ;chair-controll.c: 49:   }
+}
+[e :U 72 ]
+"50
+[; ;chair-controll.c: 50:  }else if(klock && PORTBbits.RB2)
+}
+[e $U 76  ]
+[e :U 70 ]
+[e $ ! && != -> F598 `i -> 0 `i != -> . . _PORTBbits 0 2 `i -> 0 `i 77  ]
+"51
+[; ;chair-controll.c: 51:  {
+{
+"52
+[; ;chair-controll.c: 52:   if(!timerflag)
+[e $ ! ! != -> F599 `i -> 0 `i 78  ]
+"53
+[; ;chair-controll.c: 53:   {
+{
+"54
+[; ;chair-controll.c: 54:    KlockTimerUp=9;
+[e = _KlockTimerUp -> -> 9 `i `uc ]
+"55
+[; ;chair-controll.c: 55:    timerflag=1;
+[e = F599 -> -> 1 `i `uc ]
+"57
+[; ;chair-controll.c: 57:   }else
+}
+[e $U 79  ]
+[e :U 78 ]
+"58
+[; ;chair-controll.c: 58:   {
+{
+"59
+[; ;chair-controll.c: 59:    if(!KlockTimerUp && PORTBbits.RB2)
+[e $ ! && ! != -> _KlockTimerUp `i -> 0 `i != -> . . _PORTBbits 0 2 `i -> 0 `i 80  ]
+"60
+[; ;chair-controll.c: 60:    {
+{
+"61
+[; ;chair-controll.c: 61:     klock=0;
+[e = F598 -> -> 0 `i `uc ]
+"62
+[; ;chair-controll.c: 62:     timerflag=0;
+[e = F599 -> -> 0 `i `uc ]
+"63
+[; ;chair-controll.c: 63:                 ptrflag->up_button=0;
+[e = . *U _ptrflag 1 -> -> 0 `i `uc ]
+"64
+[; ;chair-controll.c: 64:             }
+}
+[e :U 80 ]
+"65
+[; ;chair-controll.c: 65:   }
+}
+[e :U 79 ]
+"66
+[; ;chair-controll.c: 66:     }else if(!PORTBbits.RB2 && timerflag && klock)
+}
+[e $U 81  ]
+[e :U 77 ]
+[e $ ! && && ! != -> . . _PORTBbits 0 2 `i -> 0 `i != -> F599 `i -> 0 `i != -> F598 `i -> 0 `i 82  ]
+"67
+[; ;chair-controll.c: 67:     {
+{
+"68
+[; ;chair-controll.c: 68:         timerflag=0;
+[e = F599 -> -> 0 `i `uc ]
+"69
+[; ;chair-controll.c: 69:     }
+}
+[e :U 82 ]
+[e :U 81 ]
+[e :U 76 ]
+"71
+[; ;chair-controll.c: 71: }
+[e :UE 69 ]
+}
+"80
+[; ;chair-controll.c: 80: void DownKeyPress(FLAGS *ptrflag)
+[v _DownKeyPress `(v ~T0 @X0 1 ef1`*S68 ]
+"81
+[; ;chair-controll.c: 81: {
+{
+[e :U _DownKeyPress ]
+"80
+[; ;chair-controll.c: 80: void DownKeyPress(FLAGS *ptrflag)
+[v _ptrflag `*S68 ~T0 @X0 1 r1 ]
+"81
+[; ;chair-controll.c: 81: {
+[f ]
+"82
+[; ;chair-controll.c: 82:     static char klock,timerflag;
+[v F602 `uc ~T0 @X0 1 s klock ]
+[v F603 `uc ~T0 @X0 1 s timerflag ]
+"84
+[; ;chair-controll.c: 84:  if(!klock && !PORTBbits.RB3 && !ptrflag->up_button)
+[e $ ! && && ! != -> F602 `i -> 0 `i ! != -> . . _PORTBbits 0 3 `i -> 0 `i ! != -> . *U _ptrflag 1 `i -> 0 `i 84  ]
+"85
+[; ;chair-controll.c: 85:  {
+{
+"86
+[; ;chair-controll.c: 86:   if(!timerflag)
+[e $ ! ! != -> F603 `i -> 0 `i 85  ]
+"87
+[; ;chair-controll.c: 87:   {
+{
+"88
+[; ;chair-controll.c: 88:    KlockTimerDown=9;
+[e = _KlockTimerDown -> -> 9 `i `uc ]
+"89
+[; ;chair-controll.c: 89:    timerflag=1;
+[e = F603 -> -> 1 `i `uc ]
+"90
+[; ;chair-controll.c: 90:   }else
+}
+[e $U 86  ]
+[e :U 85 ]
+"91
+[; ;chair-controll.c: 91:   {
+{
+"92
+[; ;chair-controll.c: 92:    if(!KlockTimerDown)
+[e $ ! ! != -> _KlockTimerDown `i -> 0 `i 87  ]
+"93
+[; ;chair-controll.c: 93:    {
+{
+"94
+[; ;chair-controll.c: 94:                 if(!PORTBbits.RB3)
+[e $ ! ! != -> . . _PORTBbits 0 3 `i -> 0 `i 88  ]
+"95
+[; ;chair-controll.c: 95:                 {
+{
+"96
+[; ;chair-controll.c: 96:                     klock=1;
+[e = F602 -> -> 1 `i `uc ]
+"97
+[; ;chair-controll.c: 97:                     timerflag=0;
+[e = F603 -> -> 0 `i `uc ]
+"98
+[; ;chair-controll.c: 98:                     ptrflag->down_button=1;
+[e = . *U _ptrflag 0 -> -> 1 `i `uc ]
+"99
+[; ;chair-controll.c: 99:                 }else
+}
+[e $U 89  ]
+[e :U 88 ]
+"100
+[; ;chair-controll.c: 100:                 {
+{
+"101
+[; ;chair-controll.c: 101:                      timerflag=0;
+[e = F603 -> -> 0 `i `uc ]
+"102
+[; ;chair-controll.c: 102:                 }
+}
+[e :U 89 ]
+"103
+[; ;chair-controll.c: 103:    }
+}
+[e :U 87 ]
+"104
+[; ;chair-controll.c: 104:   }
+}
+[e :U 86 ]
+"105
+[; ;chair-controll.c: 105:  }else if(klock && PORTBbits.RB3)
+}
+[e $U 90  ]
+[e :U 84 ]
+[e $ ! && != -> F602 `i -> 0 `i != -> . . _PORTBbits 0 3 `i -> 0 `i 91  ]
+"106
+[; ;chair-controll.c: 106:  {
+{
+"107
+[; ;chair-controll.c: 107:   if(!timerflag)
+[e $ ! ! != -> F603 `i -> 0 `i 92  ]
+"108
+[; ;chair-controll.c: 108:   {
+{
+"109
+[; ;chair-controll.c: 109:    KlockTimerDown=9;
+[e = _KlockTimerDown -> -> 9 `i `uc ]
+"110
+[; ;chair-controll.c: 110:    timerflag=1;
+[e = F603 -> -> 1 `i `uc ]
+"112
+[; ;chair-controll.c: 112:   }else
+}
+[e $U 93  ]
+[e :U 92 ]
+"113
+[; ;chair-controll.c: 113:   {
+{
+"114
+[; ;chair-controll.c: 114:    if(!KlockTimerDown && PORTBbits.RB3)
+[e $ ! && ! != -> _KlockTimerDown `i -> 0 `i != -> . . _PORTBbits 0 3 `i -> 0 `i 94  ]
+"115
+[; ;chair-controll.c: 115:    {
+{
+"116
+[; ;chair-controll.c: 116:     klock=0;
+[e = F602 -> -> 0 `i `uc ]
+"117
+[; ;chair-controll.c: 117:     timerflag=0;
+[e = F603 -> -> 0 `i `uc ]
+"118
+[; ;chair-controll.c: 118:                 ptrflag->down_button=0;
+[e = . *U _ptrflag 0 -> -> 0 `i `uc ]
+"119
+[; ;chair-controll.c: 119:             }
+}
+[e :U 94 ]
+"120
+[; ;chair-controll.c: 120:   }
+}
+[e :U 93 ]
+"121
+[; ;chair-controll.c: 121:     }else if(!PORTBbits.RB3 && timerflag && klock)
+}
+[e $U 95  ]
+[e :U 91 ]
+[e $ ! && && ! != -> . . _PORTBbits 0 3 `i -> 0 `i != -> F603 `i -> 0 `i != -> F602 `i -> 0 `i 96  ]
+"122
+[; ;chair-controll.c: 122:     {
+{
+"123
+[; ;chair-controll.c: 123:         timerflag=0;
+[e = F603 -> -> 0 `i `uc ]
+"124
+[; ;chair-controll.c: 124:     }
+}
+[e :U 96 ]
+[e :U 95 ]
+[e :U 90 ]
+"125
+[; ;chair-controll.c: 125: }
+[e :UE 83 ]
+}
+"134
+[; ;chair-controll.c: 134: void CheckFlagStatus(FLAGS *ptrflag)
+[v _CheckFlagStatus `(v ~T0 @X0 1 ef1`*S68 ]
+"135
+[; ;chair-controll.c: 135: {
+{
+[e :U _CheckFlagStatus ]
+"134
+[; ;chair-controll.c: 134: void CheckFlagStatus(FLAGS *ptrflag)
+[v _ptrflag `*S68 ~T0 @X0 1 r1 ]
+"135
+[; ;chair-controll.c: 135: {
+[f ]
+"136
+[; ;chair-controll.c: 136:     static unsigned char down_button_lock=0, up_button_lock=0;
+[v F606 `uc ~T0 @X0 1 s down_button_lock ]
+[i F606
+-> -> 0 `i `uc
+]
+[v F607 `uc ~T0 @X0 1 s up_button_lock ]
+[i F607
+-> -> 0 `i `uc
+]
+"138
+[; ;chair-controll.c: 138:     if(ptrflag->down_button && !down_button_lock && !ptrflag->down_limit_sw)
+[e $ ! && && != -> . *U _ptrflag 0 `i -> 0 `i ! != -> F606 `i -> 0 `i ! != -> . *U _ptrflag 2 `i -> 0 `i 98  ]
+"139
+[; ;chair-controll.c: 139:     {
+{
+"140
+[; ;chair-controll.c: 140:         PORTAbits.RA2=1;
+[e = . . _PORTAbits 0 2 -> -> 1 `i `uc ]
+"141
+[; ;chair-controll.c: 141:         down_button_lock=1;
+[e = F606 -> -> 1 `i `uc ]
+"143
+[; ;chair-controll.c: 143:     }else if((!ptrflag->down_button && down_button_lock) || (ptrflag->down_limit_sw && down_button_lock))
+}
+[e $U 99  ]
+[e :U 98 ]
+[e $ ! || && ! != -> . *U _ptrflag 0 `i -> 0 `i != -> F606 `i -> 0 `i && != -> . *U _ptrflag 2 `i -> 0 `i != -> F606 `i -> 0 `i 100  ]
+"144
+[; ;chair-controll.c: 144:     {
+{
+"145
+[; ;chair-controll.c: 145:         PORTAbits.RA2=0;
+[e = . . _PORTAbits 0 2 -> -> 0 `i `uc ]
+"146
+[; ;chair-controll.c: 146:         down_button_lock=0;
+[e = F606 -> -> 0 `i `uc ]
+"147
+[; ;chair-controll.c: 147:     }
+}
+[e :U 100 ]
+[e :U 99 ]
+"149
+[; ;chair-controll.c: 149:     if(ptrflag->up_button && !up_button_lock && !ptrflag->up_limit_sw)
+[e $ ! && && != -> . *U _ptrflag 1 `i -> 0 `i ! != -> F607 `i -> 0 `i ! != -> . *U _ptrflag 3 `i -> 0 `i 101  ]
+"150
+[; ;chair-controll.c: 150:     {
+{
+"151
+[; ;chair-controll.c: 151:         PORTAbits.RA3=1;
+[e = . . _PORTAbits 0 3 -> -> 1 `i `uc ]
+"152
+[; ;chair-controll.c: 152:         up_button_lock=1;
+[e = F607 -> -> 1 `i `uc ]
+"154
+[; ;chair-controll.c: 154:     }else if((!ptrflag->up_button && up_button_lock) || (ptrflag->up_limit_sw && up_button_lock))
+}
+[e $U 102  ]
+[e :U 101 ]
+[e $ ! || && ! != -> . *U _ptrflag 1 `i -> 0 `i != -> F607 `i -> 0 `i && != -> . *U _ptrflag 3 `i -> 0 `i != -> F607 `i -> 0 `i 103  ]
+"155
+[; ;chair-controll.c: 155:     {
+{
+"156
+[; ;chair-controll.c: 156:         PORTAbits.RA3=0;
+[e = . . _PORTAbits 0 3 -> -> 0 `i `uc ]
+"157
+[; ;chair-controll.c: 157:         up_button_lock=0;
+[e = F607 -> -> 0 `i `uc ]
+"158
+[; ;chair-controll.c: 158:     }
+}
+[e :U 103 ]
+[e :U 102 ]
+"160
+[; ;chair-controll.c: 160: }
+[e :UE 97 ]
+}
+"167
+[; ;chair-controll.c: 167: void DownLimitSW(FLAGS *ptrflag)
+[v _DownLimitSW `(v ~T0 @X0 1 ef1`*S68 ]
+"168
+[; ;chair-controll.c: 168: {
+{
+[e :U _DownLimitSW ]
+"167
+[; ;chair-controll.c: 167: void DownLimitSW(FLAGS *ptrflag)
+[v _ptrflag `*S68 ~T0 @X0 1 r1 ]
+"168
+[; ;chair-controll.c: 168: {
+[f ]
+"169
+[; ;chair-controll.c: 169:     static char klock,timerflag;
+[v F610 `uc ~T0 @X0 1 s klock ]
+[v F611 `uc ~T0 @X0 1 s timerflag ]
+"171
+[; ;chair-controll.c: 171:  if(!klock && !PORTBbits.RB0)
+[e $ ! && ! != -> F610 `i -> 0 `i ! != -> . . _PORTBbits 0 0 `i -> 0 `i 105  ]
+"172
+[; ;chair-controll.c: 172:  {
+{
+"173
+[; ;chair-controll.c: 173:   if(!timerflag)
+[e $ ! ! != -> F611 `i -> 0 `i 106  ]
+"174
+[; ;chair-controll.c: 174:   {
+{
+"175
+[; ;chair-controll.c: 175:    LimitSwitchTimer=3;
+[e = _LimitSwitchTimer -> -> 3 `i `uc ]
+"176
+[; ;chair-controll.c: 176:    timerflag=1;
+[e = F611 -> -> 1 `i `uc ]
+"177
+[; ;chair-controll.c: 177:   }else
+}
+[e $U 107  ]
+[e :U 106 ]
+"178
+[; ;chair-controll.c: 178:   {
+{
+"179
+[; ;chair-controll.c: 179:    if(!LimitSwitchTimer)
+[e $ ! ! != -> _LimitSwitchTimer `i -> 0 `i 108  ]
+"180
+[; ;chair-controll.c: 180:    {
+{
+"181
+[; ;chair-controll.c: 181:                 if(!PORTBbits.RB0)
+[e $ ! ! != -> . . _PORTBbits 0 0 `i -> 0 `i 109  ]
+"182
+[; ;chair-controll.c: 182:                 {
+{
+"183
+[; ;chair-controll.c: 183:                     klock=1;
+[e = F610 -> -> 1 `i `uc ]
+"184
+[; ;chair-controll.c: 184:                     timerflag=0;
+[e = F611 -> -> 0 `i `uc ]
+"185
+[; ;chair-controll.c: 185:                     ptrflag->down_limit_sw=1;
+[e = . *U _ptrflag 2 -> -> 1 `i `uc ]
+"186
+[; ;chair-controll.c: 186:                 }else
+}
+[e $U 110  ]
+[e :U 109 ]
+"187
+[; ;chair-controll.c: 187:                 {
+{
+"188
+[; ;chair-controll.c: 188:                     timerflag=0;
+[e = F611 -> -> 0 `i `uc ]
+"189
+[; ;chair-controll.c: 189:                 }
+}
+[e :U 110 ]
+"190
+[; ;chair-controll.c: 190:    }
+}
+[e :U 108 ]
+"191
+[; ;chair-controll.c: 191:   }
+}
+[e :U 107 ]
+"192
+[; ;chair-controll.c: 192:  }else if(klock && PORTBbits.RB0)
+}
+[e $U 111  ]
+[e :U 105 ]
+[e $ ! && != -> F610 `i -> 0 `i != -> . . _PORTBbits 0 0 `i -> 0 `i 112  ]
+"193
+[; ;chair-controll.c: 193:  {
+{
+"194
+[; ;chair-controll.c: 194:   if(!timerflag)
+[e $ ! ! != -> F611 `i -> 0 `i 113  ]
+"195
+[; ;chair-controll.c: 195:   {
+{
+"196
+[; ;chair-controll.c: 196:    LimitSwitchTimer=3;
+[e = _LimitSwitchTimer -> -> 3 `i `uc ]
+"197
+[; ;chair-controll.c: 197:    timerflag=1;
+[e = F611 -> -> 1 `i `uc ]
+"199
+[; ;chair-controll.c: 199:   }else
+}
+[e $U 114  ]
+[e :U 113 ]
+"200
+[; ;chair-controll.c: 200:   {
+{
+"201
+[; ;chair-controll.c: 201:    if(!LimitSwitchTimer && PORTBbits.RB0)
+[e $ ! && ! != -> _LimitSwitchTimer `i -> 0 `i != -> . . _PORTBbits 0 0 `i -> 0 `i 115  ]
+"202
+[; ;chair-controll.c: 202:    {
+{
+"203
+[; ;chair-controll.c: 203:     klock=0;
+[e = F610 -> -> 0 `i `uc ]
+"204
+[; ;chair-controll.c: 204:     timerflag=0;
+[e = F611 -> -> 0 `i `uc ]
+"205
+[; ;chair-controll.c: 205:                 ptrflag->down_limit_sw=0;
+[e = . *U _ptrflag 2 -> -> 0 `i `uc ]
+"206
+[; ;chair-controll.c: 206:             }
+}
+[e :U 115 ]
+"207
+[; ;chair-controll.c: 207:   }
+}
+[e :U 114 ]
+"208
+[; ;chair-controll.c: 208:     }else if(!PORTBbits.RB0 && timerflag && klock)
+}
+[e $U 116  ]
+[e :U 112 ]
+[e $ ! && && ! != -> . . _PORTBbits 0 0 `i -> 0 `i != -> F611 `i -> 0 `i != -> F610 `i -> 0 `i 117  ]
+"209
+[; ;chair-controll.c: 209:     {
+{
+"210
+[; ;chair-controll.c: 210:         timerflag=0;
+[e = F611 -> -> 0 `i `uc ]
+"211
+[; ;chair-controll.c: 211:     }
+}
+[e :U 117 ]
+[e :U 116 ]
+[e :U 111 ]
+"212
+[; ;chair-controll.c: 212: }
+[e :UE 104 ]
+}
+"219
+[; ;chair-controll.c: 219: void UpLimitSW(FLAGS *ptrflag)
+[v _UpLimitSW `(v ~T0 @X0 1 ef1`*S68 ]
+"220
+[; ;chair-controll.c: 220: {
+{
+[e :U _UpLimitSW ]
+"219
+[; ;chair-controll.c: 219: void UpLimitSW(FLAGS *ptrflag)
+[v _ptrflag `*S68 ~T0 @X0 1 r1 ]
+"220
+[; ;chair-controll.c: 220: {
+[f ]
+"221
+[; ;chair-controll.c: 221:     static char klock,timerflag;
+[v F614 `uc ~T0 @X0 1 s klock ]
+[v F615 `uc ~T0 @X0 1 s timerflag ]
+"223
+[; ;chair-controll.c: 223:  if(!klock && !PORTBbits.RB1)
+[e $ ! && ! != -> F614 `i -> 0 `i ! != -> . . _PORTBbits 0 1 `i -> 0 `i 119  ]
+"224
+[; ;chair-controll.c: 224:  {
+{
+"225
+[; ;chair-controll.c: 225:   if(!timerflag)
+[e $ ! ! != -> F615 `i -> 0 `i 120  ]
+"226
+[; ;chair-controll.c: 226:   {
+{
+"227
+[; ;chair-controll.c: 227:    LimitSwitchTimer=3;
+[e = _LimitSwitchTimer -> -> 3 `i `uc ]
+"228
+[; ;chair-controll.c: 228:    timerflag=1;
+[e = F615 -> -> 1 `i `uc ]
+"229
+[; ;chair-controll.c: 229:   }else
+}
+[e $U 121  ]
+[e :U 120 ]
+"230
+[; ;chair-controll.c: 230:   {
+{
+"231
+[; ;chair-controll.c: 231:    if(!LimitSwitchTimer)
+[e $ ! ! != -> _LimitSwitchTimer `i -> 0 `i 122  ]
+"232
+[; ;chair-controll.c: 232:    {
+{
+"233
+[; ;chair-controll.c: 233:                 if(!PORTBbits.RB1)
+[e $ ! ! != -> . . _PORTBbits 0 1 `i -> 0 `i 123  ]
+"234
+[; ;chair-controll.c: 234:                 {
+{
+"235
+[; ;chair-controll.c: 235:                     klock=1;
+[e = F614 -> -> 1 `i `uc ]
+"236
+[; ;chair-controll.c: 236:                     timerflag=0;
+[e = F615 -> -> 0 `i `uc ]
+"237
+[; ;chair-controll.c: 237:                     ptrflag->up_limit_sw=1;
+[e = . *U _ptrflag 3 -> -> 1 `i `uc ]
+"238
+[; ;chair-controll.c: 238:                 }else
+}
+[e $U 124  ]
+[e :U 123 ]
+"239
+[; ;chair-controll.c: 239:                 {
+{
+"240
+[; ;chair-controll.c: 240:                     timerflag=0;
+[e = F615 -> -> 0 `i `uc ]
+"241
+[; ;chair-controll.c: 241:                 }
+}
+[e :U 124 ]
+"243
+[; ;chair-controll.c: 243:    }
+}
+[e :U 122 ]
+"244
+[; ;chair-controll.c: 244:   }
+}
+[e :U 121 ]
+"245
+[; ;chair-controll.c: 245:  }else if(klock && PORTBbits.RB1)
+}
+[e $U 125  ]
+[e :U 119 ]
+[e $ ! && != -> F614 `i -> 0 `i != -> . . _PORTBbits 0 1 `i -> 0 `i 126  ]
+"246
+[; ;chair-controll.c: 246:  {
+{
+"247
+[; ;chair-controll.c: 247:   if(!timerflag)
+[e $ ! ! != -> F615 `i -> 0 `i 127  ]
+"248
+[; ;chair-controll.c: 248:   {
+{
+"249
+[; ;chair-controll.c: 249:    LimitSwitchTimer=3;
+[e = _LimitSwitchTimer -> -> 3 `i `uc ]
+"250
+[; ;chair-controll.c: 250:    timerflag=1;
+[e = F615 -> -> 1 `i `uc ]
+"252
+[; ;chair-controll.c: 252:   }else
+}
+[e $U 128  ]
+[e :U 127 ]
+"253
+[; ;chair-controll.c: 253:   {
+{
+"254
+[; ;chair-controll.c: 254:    if(!LimitSwitchTimer && PORTBbits.RB1)
+[e $ ! && ! != -> _LimitSwitchTimer `i -> 0 `i != -> . . _PORTBbits 0 1 `i -> 0 `i 129  ]
+"255
+[; ;chair-controll.c: 255:    {
+{
+"256
+[; ;chair-controll.c: 256:     klock=0;
+[e = F614 -> -> 0 `i `uc ]
+"257
+[; ;chair-controll.c: 257:     timerflag=0;
+[e = F615 -> -> 0 `i `uc ]
+"258
+[; ;chair-controll.c: 258:                 ptrflag->up_limit_sw=0;
+[e = . *U _ptrflag 3 -> -> 0 `i `uc ]
+"259
+[; ;chair-controll.c: 259:             }
+}
+[e :U 129 ]
+"260
+[; ;chair-controll.c: 260:   }
+}
+[e :U 128 ]
+"261
+[; ;chair-controll.c: 261:     }else if(!PORTBbits.RB1 && timerflag && klock)
+}
+[e $U 130  ]
+[e :U 126 ]
+[e $ ! && && ! != -> . . _PORTBbits 0 1 `i -> 0 `i != -> F615 `i -> 0 `i != -> F614 `i -> 0 `i 131  ]
+"262
+[; ;chair-controll.c: 262:     {
+{
+"263
+[; ;chair-controll.c: 263:         timerflag=0;
+[e = F615 -> -> 0 `i `uc ]
+"264
+[; ;chair-controll.c: 264:     }
+}
+[e :U 131 ]
+[e :U 130 ]
+[e :U 125 ]
+"265
+[; ;chair-controll.c: 265: }
+[e :UE 118 ]
+}

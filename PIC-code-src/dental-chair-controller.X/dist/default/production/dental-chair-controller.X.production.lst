@@ -1,0 +1,2337 @@
+
+
+Microchip MPLAB XC8 Assembler V2.10 build 88905656 
+                                                                                               Mon Feb 17 17:55:32 2020
+
+Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1 
+     1                           	processor	16F819
+     2                           	opt	pw 120
+     3                           	opt	flic
+     4                           	psect	cinit,global,class=CODE,merge=1,delta=2
+     5                           	psect	bssCOMMON,global,class=COMMON,space=1,delta=1
+     6                           	psect	bssBANK0,global,class=BANK0,space=1,delta=1
+     7                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1
+     8                           	psect	cstackBANK0,global,class=BANK0,space=1,delta=1
+     9                           	psect	maintext,global,class=CODE,split=1,delta=2
+    10                           	psect	text1,local,class=CODE,merge=1,delta=2
+    11                           	psect	text2,local,class=CODE,merge=1,delta=2
+    12                           	psect	text3,local,class=CODE,merge=1,delta=2
+    13                           	psect	text4,local,class=CODE,merge=1,delta=2
+    14                           	psect	text5,local,class=CODE,merge=1,delta=2
+    15                           	psect	text6,local,class=CODE,merge=1,delta=2
+    16                           	psect	text7,local,class=CODE,merge=1,delta=2
+    17                           	psect	text8,local,class=CODE,merge=1,delta=2
+    18                           	psect	intentry,global,class=CODE,delta=2
+    19                           	dabs	1,0x7E,2
+    20  0000                     
+    21                           ; Version 2.10
+    22                           ; Generated 31/07/2019 GMT
+    23                           ; 
+    24                           ; Copyright © 2019, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    25                           ; All rights reserved.
+    26                           ; 
+    27                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    28                           ; 
+    29                           ; Redistribution and use in source and binary forms, with or without modification, are
+    30                           ; permitted provided that the following conditions are met:
+    31                           ; 
+    32                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    33                           ;        conditions and the following disclaimer.
+    34                           ; 
+    35                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    36                           ;        of conditions and the following disclaimer in the documentation and/or other
+    37                           ;        materials provided with the distribution.
+    38                           ; 
+    39                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    40                           ;        software without specific prior written permission.
+    41                           ; 
+    42                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    43                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    44                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    45                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    46                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    47                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    48                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    49                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    50                           ; 
+    51                           ; 
+    52                           ; Code-generator required, PIC16F819 Definitions
+    53                           ; 
+    54                           ; SFR Addresses
+    55  0000                     	;# 
+    56  0001                     	;# 
+    57  0002                     	;# 
+    58  0003                     	;# 
+    59  0004                     	;# 
+    60  0005                     	;# 
+    61  0006                     	;# 
+    62  000A                     	;# 
+    63  000B                     	;# 
+    64  000C                     	;# 
+    65  000D                     	;# 
+    66  000E                     	;# 
+    67  000E                     	;# 
+    68  000F                     	;# 
+    69  0010                     	;# 
+    70  0011                     	;# 
+    71  0012                     	;# 
+    72  0013                     	;# 
+    73  0014                     	;# 
+    74  0015                     	;# 
+    75  0015                     	;# 
+    76  0016                     	;# 
+    77  0017                     	;# 
+    78  001E                     	;# 
+    79  001F                     	;# 
+    80  0081                     	;# 
+    81  0085                     	;# 
+    82  0086                     	;# 
+    83  008C                     	;# 
+    84  008D                     	;# 
+    85  008E                     	;# 
+    86  008F                     	;# 
+    87  0090                     	;# 
+    88  0092                     	;# 
+    89  0093                     	;# 
+    90  0094                     	;# 
+    91  009E                     	;# 
+    92  009F                     	;# 
+    93  010C                     	;# 
+    94  010D                     	;# 
+    95  010E                     	;# 
+    96  010F                     	;# 
+    97  018C                     	;# 
+    98  018D                     	;# 
+    99  0000                     	;# 
+   100  0001                     	;# 
+   101  0002                     	;# 
+   102  0003                     	;# 
+   103  0004                     	;# 
+   104  0005                     	;# 
+   105  0006                     	;# 
+   106  000A                     	;# 
+   107  000B                     	;# 
+   108  000C                     	;# 
+   109  000D                     	;# 
+   110  000E                     	;# 
+   111  000E                     	;# 
+   112  000F                     	;# 
+   113  0010                     	;# 
+   114  0011                     	;# 
+   115  0012                     	;# 
+   116  0013                     	;# 
+   117  0014                     	;# 
+   118  0015                     	;# 
+   119  0015                     	;# 
+   120  0016                     	;# 
+   121  0017                     	;# 
+   122  001E                     	;# 
+   123  001F                     	;# 
+   124  0081                     	;# 
+   125  0085                     	;# 
+   126  0086                     	;# 
+   127  008C                     	;# 
+   128  008D                     	;# 
+   129  008E                     	;# 
+   130  008F                     	;# 
+   131  0090                     	;# 
+   132  0092                     	;# 
+   133  0093                     	;# 
+   134  0094                     	;# 
+   135  009E                     	;# 
+   136  009F                     	;# 
+   137  010C                     	;# 
+   138  010D                     	;# 
+   139  010E                     	;# 
+   140  010F                     	;# 
+   141  018C                     	;# 
+   142  018D                     	;# 
+   143  0000                     	;# 
+   144  0001                     	;# 
+   145  0002                     	;# 
+   146  0003                     	;# 
+   147  0004                     	;# 
+   148  0005                     	;# 
+   149  0006                     	;# 
+   150  000A                     	;# 
+   151  000B                     	;# 
+   152  000C                     	;# 
+   153  000D                     	;# 
+   154  000E                     	;# 
+   155  000E                     	;# 
+   156  000F                     	;# 
+   157  0010                     	;# 
+   158  0011                     	;# 
+   159  0012                     	;# 
+   160  0013                     	;# 
+   161  0014                     	;# 
+   162  0015                     	;# 
+   163  0015                     	;# 
+   164  0016                     	;# 
+   165  0017                     	;# 
+   166  001E                     	;# 
+   167  001F                     	;# 
+   168  0081                     	;# 
+   169  0085                     	;# 
+   170  0086                     	;# 
+   171  008C                     	;# 
+   172  008D                     	;# 
+   173  008E                     	;# 
+   174  008F                     	;# 
+   175  0090                     	;# 
+   176  0092                     	;# 
+   177  0093                     	;# 
+   178  0094                     	;# 
+   179  009E                     	;# 
+   180  009F                     	;# 
+   181  010C                     	;# 
+   182  010D                     	;# 
+   183  010E                     	;# 
+   184  010F                     	;# 
+   185  018C                     	;# 
+   186  018D                     	;# 
+   187  0000                     	;# 
+   188  0001                     	;# 
+   189  0002                     	;# 
+   190  0003                     	;# 
+   191  0004                     	;# 
+   192  0005                     	;# 
+   193  0006                     	;# 
+   194  000A                     	;# 
+   195  000B                     	;# 
+   196  000C                     	;# 
+   197  000D                     	;# 
+   198  000E                     	;# 
+   199  000E                     	;# 
+   200  000F                     	;# 
+   201  0010                     	;# 
+   202  0011                     	;# 
+   203  0012                     	;# 
+   204  0013                     	;# 
+   205  0014                     	;# 
+   206  0015                     	;# 
+   207  0015                     	;# 
+   208  0016                     	;# 
+   209  0017                     	;# 
+   210  001E                     	;# 
+   211  001F                     	;# 
+   212  0081                     	;# 
+   213  0085                     	;# 
+   214  0086                     	;# 
+   215  008C                     	;# 
+   216  008D                     	;# 
+   217  008E                     	;# 
+   218  008F                     	;# 
+   219  0090                     	;# 
+   220  0092                     	;# 
+   221  0093                     	;# 
+   222  0094                     	;# 
+   223  009E                     	;# 
+   224  009F                     	;# 
+   225  010C                     	;# 
+   226  010D                     	;# 
+   227  010E                     	;# 
+   228  010F                     	;# 
+   229  018C                     	;# 
+   230  018D                     	;# 
+   231  0000                     	;# 
+   232  0001                     	;# 
+   233  0002                     	;# 
+   234  0003                     	;# 
+   235  0004                     	;# 
+   236  0005                     	;# 
+   237  0006                     	;# 
+   238  000A                     	;# 
+   239  000B                     	;# 
+   240  000C                     	;# 
+   241  000D                     	;# 
+   242  000E                     	;# 
+   243  000E                     	;# 
+   244  000F                     	;# 
+   245  0010                     	;# 
+   246  0011                     	;# 
+   247  0012                     	;# 
+   248  0013                     	;# 
+   249  0014                     	;# 
+   250  0015                     	;# 
+   251  0015                     	;# 
+   252  0016                     	;# 
+   253  0017                     	;# 
+   254  001E                     	;# 
+   255  001F                     	;# 
+   256  0081                     	;# 
+   257  0085                     	;# 
+   258  0086                     	;# 
+   259  008C                     	;# 
+   260  008D                     	;# 
+   261  008E                     	;# 
+   262  008F                     	;# 
+   263  0090                     	;# 
+   264  0092                     	;# 
+   265  0093                     	;# 
+   266  0094                     	;# 
+   267  009E                     	;# 
+   268  009F                     	;# 
+   269  010C                     	;# 
+   270  010D                     	;# 
+   271  010E                     	;# 
+   272  010F                     	;# 
+   273  018C                     	;# 
+   274  018D                     	;# 
+   275  0000                     	;# 
+   276  0001                     	;# 
+   277  0002                     	;# 
+   278  0003                     	;# 
+   279  0004                     	;# 
+   280  0005                     	;# 
+   281  0006                     	;# 
+   282  000A                     	;# 
+   283  000B                     	;# 
+   284  000C                     	;# 
+   285  000D                     	;# 
+   286  000E                     	;# 
+   287  000E                     	;# 
+   288  000F                     	;# 
+   289  0010                     	;# 
+   290  0011                     	;# 
+   291  0012                     	;# 
+   292  0013                     	;# 
+   293  0014                     	;# 
+   294  0015                     	;# 
+   295  0015                     	;# 
+   296  0016                     	;# 
+   297  0017                     	;# 
+   298  001E                     	;# 
+   299  001F                     	;# 
+   300  0081                     	;# 
+   301  0085                     	;# 
+   302  0086                     	;# 
+   303  008C                     	;# 
+   304  008D                     	;# 
+   305  008E                     	;# 
+   306  008F                     	;# 
+   307  0090                     	;# 
+   308  0092                     	;# 
+   309  0093                     	;# 
+   310  0094                     	;# 
+   311  009E                     	;# 
+   312  009F                     	;# 
+   313  010C                     	;# 
+   314  010D                     	;# 
+   315  010E                     	;# 
+   316  010F                     	;# 
+   317  018C                     	;# 
+   318  018D                     	;# 
+   319  000B                     _INTCONbits	set	11
+   320  0005                     _PORTAbits	set	5
+   321  0006                     _PORTBbits	set	6
+   322  005A                     _TMR0IF	set	90
+   323  005D                     _TMR0IE	set	93
+   324  0081                     _OPTION_REGbits	set	129
+   325  009F                     _ADCON1bits	set	159
+   326  008F                     _OSCCONbits	set	143
+   327  0435                     _TRISB5	set	1077
+   328  042A                     _TRISA2	set	1066
+   329  042B                     _TRISA3	set	1067
+   330  0433                     _TRISB3	set	1075
+   331  0432                     _TRISB2	set	1074
+   332  0431                     _TRISB1	set	1073
+   333  0430                     _TRISB0	set	1072
+   334                           
+   335                           ; #config settings
+   336  0000                     
+   337                           	psect	cinit
+   338  000B                     start_initialization:	
+   339  000B                     __initialization:	
+   340                           
+   341                           ; Clear objects allocated to COMMON
+   342  000B  01F0               	clrf	__pbssCOMMON& (0+127)
+   343  000C  01F1               	clrf	(__pbssCOMMON+1)& (0+127)
+   344  000D  01F2               	clrf	(__pbssCOMMON+2)& (0+127)
+   345  000E  01F3               	clrf	(__pbssCOMMON+3)& (0+127)
+   346  000F  01F4               	clrf	(__pbssCOMMON+4)& (0+127)
+   347  0010  01F5               	clrf	(__pbssCOMMON+5)& (0+127)
+   348                           
+   349                           ; Clear objects allocated to BANK0
+   350  0011  1283               	bcf	3,5	;RP0=0, select bank0
+   351  0012  1303               	bcf	3,6	;RP1=0, select bank0
+   352  0013  01A0               	clrf	__pbssBANK0& (0+127)
+   353  0014  01A1               	clrf	(__pbssBANK0+1)& (0+127)
+   354  0015  01A2               	clrf	(__pbssBANK0+2)& (0+127)
+   355  0016  01A3               	clrf	(__pbssBANK0+3)& (0+127)
+   356  0017  01A4               	clrf	(__pbssBANK0+4)& (0+127)
+   357  0018  01A5               	clrf	(__pbssBANK0+5)& (0+127)
+   358  0019  01A6               	clrf	(__pbssBANK0+6)& (0+127)
+   359  001A  01A7               	clrf	(__pbssBANK0+7)& (0+127)
+   360  001B                     end_of_initialization:	
+   361                           ;End of C runtime variable initialization code
+   362                           
+   363  001B                     __end_of__initialization:	
+   364  001B  0183               	clrf	3
+   365  001C  2A3D               	ljmp	_main	;jump to C main() function
+   366                           
+   367                           	psect	bssCOMMON
+   368  0070                     __pbssCOMMON:	
+   369  0070                     DownKeyPress@klock:	
+   370  0070                     	ds	1
+   371  0071                     UpKeyPress@timerflag:	
+   372  0071                     	ds	1
+   373  0072                     UpKeyPress@klock:	
+   374  0072                     	ds	1
+   375  0073                     _LimitSwitchTimer:	
+   376  0073                     	ds	1
+   377  0074                     _KlockTimerDown:	
+   378  0074                     	ds	1
+   379  0075                     _KlockTimerUp:	
+   380  0075                     	ds	1
+   381                           
+   382                           	psect	bssBANK0
+   383  0020                     __pbssBANK0:	
+   384  0020                     _KlockTimer:	
+   385  0020                     	ds	1
+   386  0021                     UpLimitSW@timerflag:	
+   387  0021                     	ds	1
+   388  0022                     UpLimitSW@klock:	
+   389  0022                     	ds	1
+   390  0023                     DownLimitSW@timerflag:	
+   391  0023                     	ds	1
+   392  0024                     DownLimitSW@klock:	
+   393  0024                     	ds	1
+   394  0025                     CheckFlagStatus@up_button_lock:	
+   395  0025                     	ds	1
+   396  0026                     CheckFlagStatus@down_button_lock:	
+   397  0026                     	ds	1
+   398  0027                     DownKeyPress@timerflag:	
+   399  0027                     	ds	1
+   400                           
+   401                           	psect	cstackCOMMON
+   402  0076                     __pcstackCOMMON:	
+   403  0076                     ?_Global_Inits:	
+   404  0076                     ?_InterruptConfig:	
+   405                           ; 1 bytes @ 0x0
+   406                           
+   407  0076                     ?_DownKeyPress:	
+   408                           ; 1 bytes @ 0x0
+   409                           
+   410  0076                     ?_UpKeyPress:	
+   411                           ; 1 bytes @ 0x0
+   412                           
+   413  0076                     ?_DownLimitSW:	
+   414                           ; 1 bytes @ 0x0
+   415                           
+   416  0076                     ?_UpLimitSW:	
+   417                           ; 1 bytes @ 0x0
+   418                           
+   419  0076                     ?_CheckFlagStatus:	
+   420                           ; 1 bytes @ 0x0
+   421                           
+   422  0076                     ?_main:	
+   423                           ; 1 bytes @ 0x0
+   424                           
+   425  0076                     ?_ISR:	
+   426                           ; 1 bytes @ 0x0
+   427                           
+   428  0076                     ??_ISR:	
+   429                           ; 1 bytes @ 0x0
+   430                           
+   431                           
+   432                           ; 1 bytes @ 0x0
+   433  0076                     	ds	2
+   434  0078                     ??_Global_Inits:	
+   435  0078                     ??_InterruptConfig:	
+   436                           ; 1 bytes @ 0x2
+   437                           
+   438  0078                     ??_DownKeyPress:	
+   439                           ; 1 bytes @ 0x2
+   440                           
+   441  0078                     ??_UpKeyPress:	
+   442                           ; 1 bytes @ 0x2
+   443                           
+   444  0078                     ??_DownLimitSW:	
+   445                           ; 1 bytes @ 0x2
+   446                           
+   447  0078                     ??_UpLimitSW:	
+   448                           ; 1 bytes @ 0x2
+   449                           
+   450  0078                     ??_CheckFlagStatus:	
+   451                           ; 1 bytes @ 0x2
+   452                           
+   453  0078                     CheckFlagStatus@ptrflag:	
+   454                           ; 1 bytes @ 0x2
+   455                           
+   456                           
+   457                           ; 1 bytes @ 0x2
+   458  0078                     	ds	1
+   459  0079                     UpKeyPress@ptrflag:	
+   460  0079                     DownKeyPress@ptrflag:	
+   461                           ; 1 bytes @ 0x3
+   462                           
+   463  0079                     DownLimitSW@ptrflag:	
+   464                           ; 1 bytes @ 0x3
+   465                           
+   466  0079                     UpLimitSW@ptrflag:	
+   467                           ; 1 bytes @ 0x3
+   468                           
+   469                           
+   470                           ; 1 bytes @ 0x3
+   471  0079                     	ds	1
+   472  007A                     ??_main:	
+   473                           
+   474                           	psect	cstackBANK0
+   475  0028                     __pcstackBANK0:	
+   476                           ; 1 bytes @ 0x4
+   477                           
+   478  0028                     main@swflag:	
+   479                           
+   480                           ; 4 bytes @ 0x0
+   481  0028                     	ds	4
+   482                           
+   483                           	psect	maintext
+   484  023D                     __pmaintext:	
+   485 ;;
+   486 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   487 ;;
+   488 ;; *************** function _main *****************
+   489 ;; Defined at:
+   490 ;;		line 16 in file "main.c"
+   491 ;; Parameters:    Size  Location     Type
+   492 ;;		None
+   493 ;; Auto vars:     Size  Location     Type
+   494 ;;  swflag          4    0[BANK0 ] struct .
+   495 ;; Return value:  Size  Location     Type
+   496 ;;                  1    wreg      void 
+   497 ;; Registers used:
+   498 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+   499 ;; Tracked objects:
+   500 ;;		On entry : B00/0
+   501 ;;		On exit  : 0/0
+   502 ;;		Unchanged: 0/0
+   503 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
+   504 ;;      Params:         0       0       0       0
+   505 ;;      Locals:         0       4       0       0
+   506 ;;      Temps:          0       0       0       0
+   507 ;;      Totals:         0       4       0       0
+   508 ;;Total ram usage:        4 bytes
+   509 ;; Hardware stack levels required when called:    2
+   510 ;; This function calls:
+   511 ;;		_CheckFlagStatus
+   512 ;;		_DownKeyPress
+   513 ;;		_DownLimitSW
+   514 ;;		_Global_Inits
+   515 ;;		_InterruptConfig
+   516 ;;		_UpKeyPress
+   517 ;;		_UpLimitSW
+   518 ;; This function is called by:
+   519 ;;		Startup code after reset
+   520 ;; This function uses a non-reentrant model
+   521 ;;
+   522                           
+   523                           
+   524                           ;psect for function _main
+   525  023D                     _main:	
+   526  023D                     l1522:	
+   527                           ;incstack = 0
+   528                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+   529                           
+   530                           
+   531                           ;main.c: 18:     Global_Inits();
+   532  023D  2252               	fcall	_Global_Inits
+   533                           
+   534                           ;main.c: 19:     InterruptConfig();
+   535  023E  2266               	fcall	_InterruptConfig
+   536  023F                     l1524:	
+   537                           
+   538                           ;main.c: 21:     FLAGS swflag;;main.c: 22:     swflag.down_button=0;
+   539  023F  1283               	bcf	3,5	;RP0=0, select bank0
+   540  0240  1303               	bcf	3,6	;RP1=0, select bank0
+   541  0241  01A8               	clrf	main@swflag
+   542  0242                     l1526:	
+   543                           
+   544                           ;main.c: 23:     swflag.up_button=0;
+   545  0242  01A9               	clrf	main@swflag+1
+   546  0243                     l1528:	
+   547                           
+   548                           ;main.c: 24:     swflag.down_limit_sw=0;
+   549  0243  01AA               	clrf	main@swflag+2
+   550  0244                     l1530:	
+   551                           
+   552                           ;main.c: 25:     swflag.up_limit_sw=0;
+   553  0244  01AB               	clrf	main@swflag+3
+   554  0245                     l25:	
+   555                           ;main.c: 27:     while(1)
+   556                           
+   557  0245  0064               	clrwdt	;# 
+   558  0246                     l1532:	
+   559                           
+   560                           ;main.c: 30:         DownKeyPress(&swflag);
+   561  0246  3028               	movlw	(low (main@swflag| 0))& (0+255)
+   562  0247  20F8               	fcall	_DownKeyPress
+   563  0248                     l1534:	
+   564                           
+   565                           ;main.c: 31:         UpKeyPress(&swflag);
+   566  0248  3028               	movlw	(low (main@swflag| 0))& (0+255)
+   567  0249  2092               	fcall	_UpKeyPress
+   568  024A                     l1536:	
+   569                           
+   570                           ;main.c: 32:         DownLimitSW(&swflag);
+   571  024A  3028               	movlw	(low (main@swflag| 0))& (0+255)
+   572  024B  21BB               	fcall	_DownLimitSW
+   573  024C                     l1538:	
+   574                           
+   575                           ;main.c: 33:         UpLimitSW(&swflag);
+   576  024C  3028               	movlw	(low (main@swflag| 0))& (0+255)
+   577  024D  215E               	fcall	_UpLimitSW
+   578  024E                     l1540:	
+   579                           
+   580                           ;main.c: 34:         CheckFlagStatus(&swflag);
+   581  024E  3028               	movlw	(low (main@swflag| 0))& (0+255)
+   582  024F  201D               	fcall	_CheckFlagStatus
+   583  0250  2A45               	goto	l25
+   584  0251  280A               	ljmp	start
+   585  0252                     __end_of_main:	
+   586                           
+   587                           	psect	text1
+   588  015E                     __ptext1:	
+   589 ;; *************** function _UpLimitSW *****************
+   590 ;; Defined at:
+   591 ;;		line 219 in file "chair-controll.c"
+   592 ;; Parameters:    Size  Location     Type
+   593 ;;  ptrflag         1    wreg     PTR struct .
+   594 ;;		 -> main@swflag(4), 
+   595 ;; Auto vars:     Size  Location     Type
+   596 ;;  ptrflag         1    3[COMMON] PTR struct .
+   597 ;;		 -> main@swflag(4), 
+   598 ;; Return value:  Size  Location     Type
+   599 ;;                  1    wreg      void 
+   600 ;; Registers used:
+   601 ;;		wreg, fsr0l, fsr0h, status,2, status,0
+   602 ;; Tracked objects:
+   603 ;;		On entry : 0/0
+   604 ;;		On exit  : 0/0
+   605 ;;		Unchanged: 0/0
+   606 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
+   607 ;;      Params:         0       0       0       0
+   608 ;;      Locals:         1       0       0       0
+   609 ;;      Temps:          1       0       0       0
+   610 ;;      Totals:         2       0       0       0
+   611 ;;Total ram usage:        2 bytes
+   612 ;; Hardware stack levels used:    1
+   613 ;; Hardware stack levels required when called:    1
+   614 ;; This function calls:
+   615 ;;		Nothing
+   616 ;; This function is called by:
+   617 ;;		_main
+   618 ;; This function uses a non-reentrant model
+   619 ;;
+   620                           
+   621                           
+   622                           ;psect for function _UpLimitSW
+   623  015E                     _UpLimitSW:	
+   624                           
+   625                           ;incstack = 0
+   626                           ; Regs used in _UpLimitSW: [wreg-fsr0h+status,2+status,0]
+   627                           ;UpLimitSW@ptrflag stored from wreg
+   628  015E  00F9               	movwf	UpLimitSW@ptrflag
+   629  015F                     l1440:	
+   630                           
+   631                           ;chair-controll.c: 219: void UpLimitSW(FLAGS *ptrflag);chair-controll.c: 220: {;chair-co
+      +                          ntroll.c: 221:     static char klock,timerflag;;chair-controll.c: 223:  if(!klock && !PO
+      +                          RTBbits.RB1)
+   632  015F  1283               	bcf	3,5	;RP0=0, select bank0
+   633  0160  1303               	bcf	3,6	;RP1=0, select bank0
+   634  0161  0822               	movf	UpLimitSW@klock,w
+   635  0162  1D03               	btfss	3,2
+   636  0163  2965               	goto	u1691
+   637  0164  2966               	goto	u1690
+   638  0165                     u1691:	
+   639  0165  298B               	goto	l1462
+   640  0166                     u1690:	
+   641  0166                     l1442:	
+   642  0166  1886               	btfsc	6,1	;volatile
+   643  0167  2969               	goto	u1701
+   644  0168  296A               	goto	u1700
+   645  0169                     u1701:	
+   646  0169  298B               	goto	l1462
+   647  016A                     u1700:	
+   648  016A                     l1444:	
+   649                           
+   650                           ;chair-controll.c: 224:  {;chair-controll.c: 225:   if(!timerflag)
+   651  016A  0821               	movf	UpLimitSW@timerflag,w
+   652  016B  1D03               	btfss	3,2
+   653  016C  296E               	goto	u1711
+   654  016D  296F               	goto	u1710
+   655  016E                     u1711:	
+   656  016E  2976               	goto	l1450
+   657  016F                     u1710:	
+   658  016F                     l1446:	
+   659                           
+   660                           ;chair-controll.c: 226:   {;chair-controll.c: 227:    LimitSwitchTimer=3;
+   661  016F  3003               	movlw	3
+   662  0170  00F8               	movwf	??_UpLimitSW
+   663  0171  0878               	movf	??_UpLimitSW,w
+   664  0172  00F3               	movwf	_LimitSwitchTimer	;volatile
+   665  0173                     l1448:	
+   666                           
+   667                           ;chair-controll.c: 228:    timerflag=1;
+   668  0173  01A1               	clrf	UpLimitSW@timerflag
+   669  0174  0AA1               	incf	UpLimitSW@timerflag,f
+   670                           
+   671                           ;chair-controll.c: 229:   }else
+   672  0175  29BA               	goto	l139
+   673  0176                     l1450:	
+   674                           
+   675                           ;chair-controll.c: 230:   {;chair-controll.c: 231:    if(!LimitSwitchTimer)
+   676  0176  0873               	movf	_LimitSwitchTimer,w	;volatile
+   677  0177  1D03               	btfss	3,2
+   678  0178  297A               	goto	u1721
+   679  0179  297B               	goto	u1720
+   680  017A                     u1721:	
+   681  017A  29BA               	goto	l139
+   682  017B                     u1720:	
+   683  017B                     l1452:	
+   684                           
+   685                           ;chair-controll.c: 232:    {;chair-controll.c: 233:                 if(!PORTBbits.RB1)
+   686  017B  1886               	btfsc	6,1	;volatile
+   687  017C  297E               	goto	u1731
+   688  017D  297F               	goto	u1730
+   689  017E                     u1731:	
+   690  017E  2989               	goto	l1460
+   691  017F                     u1730:	
+   692  017F                     l1454:	
+   693                           
+   694                           ;chair-controll.c: 234:                 {;chair-controll.c: 235:                     klo
+      +                          ck=1;
+   695  017F  01A2               	clrf	UpLimitSW@klock
+   696  0180  0AA2               	incf	UpLimitSW@klock,f
+   697  0181                     l1456:	
+   698                           
+   699                           ;chair-controll.c: 236:                     timerflag=0;
+   700  0181  01A1               	clrf	UpLimitSW@timerflag
+   701  0182                     l1458:	
+   702                           
+   703                           ;chair-controll.c: 237:                     ptrflag->up_limit_sw=1;
+   704  0182  0879               	movf	UpLimitSW@ptrflag,w
+   705  0183  3E03               	addlw	3
+   706  0184  0084               	movwf	4
+   707  0185  1383               	bcf	3,7	;select IRP bank0
+   708  0186  0180               	clrf	0
+   709  0187  0A80               	incf	0,f
+   710                           
+   711                           ;chair-controll.c: 238:                 }else
+   712  0188  29BA               	goto	l139
+   713  0189                     l1460:	
+   714                           
+   715                           ;chair-controll.c: 239:                 {;chair-controll.c: 240:                     tim
+      +                          erflag=0;
+   716  0189  01A1               	clrf	UpLimitSW@timerflag
+   717  018A  29BA               	goto	l139
+   718  018B                     l1462:	
+   719  018B  0822               	movf	UpLimitSW@klock,w
+   720  018C  1903               	btfsc	3,2
+   721  018D  298F               	goto	u1741
+   722  018E  2990               	goto	u1740
+   723  018F                     u1741:	
+   724  018F  29AB               	goto	l133
+   725  0190                     u1740:	
+   726  0190                     l1464:	
+   727  0190  1C86               	btfss	6,1	;volatile
+   728  0191  2993               	goto	u1751
+   729  0192  2994               	goto	u1750
+   730  0193                     u1751:	
+   731  0193  29AB               	goto	l133
+   732  0194                     u1750:	
+   733  0194                     l1466:	
+   734                           
+   735                           ;chair-controll.c: 246:  {;chair-controll.c: 247:   if(!timerflag)
+   736  0194  0821               	movf	UpLimitSW@timerflag,w
+   737  0195  1D03               	btfss	3,2
+   738  0196  2998               	goto	u1761
+   739  0197  2999               	goto	u1760
+   740  0198                     u1761:	
+   741  0198  299A               	goto	l1472
+   742  0199                     u1760:	
+   743  0199  296F               	goto	l1446
+   744  019A                     l1472:	
+   745                           
+   746                           ;chair-controll.c: 253:   {;chair-controll.c: 254:    if(!LimitSwitchTimer && PORTBbits.
+      +                          RB1)
+   747  019A  0873               	movf	_LimitSwitchTimer,w	;volatile
+   748  019B  1D03               	btfss	3,2
+   749  019C  299E               	goto	u1771
+   750  019D  299F               	goto	u1770
+   751  019E                     u1771:	
+   752  019E  29BA               	goto	l139
+   753  019F                     u1770:	
+   754  019F                     l1474:	
+   755  019F  1C86               	btfss	6,1	;volatile
+   756  01A0  29A2               	goto	u1781
+   757  01A1  29A3               	goto	u1780
+   758  01A2                     u1781:	
+   759  01A2  29BA               	goto	l139
+   760  01A3                     u1780:	
+   761  01A3                     l1476:	
+   762                           
+   763                           ;chair-controll.c: 255:    {;chair-controll.c: 256:     klock=0;
+   764  01A3  01A2               	clrf	UpLimitSW@klock
+   765                           
+   766                           ;chair-controll.c: 257:     timerflag=0;
+   767  01A4  01A1               	clrf	UpLimitSW@timerflag
+   768  01A5                     l1478:	
+   769                           
+   770                           ;chair-controll.c: 258:                 ptrflag->up_limit_sw=0;
+   771  01A5  0879               	movf	UpLimitSW@ptrflag,w
+   772  01A6  3E03               	addlw	3
+   773  01A7  0084               	movwf	4
+   774  01A8  1383               	bcf	3,7	;select IRP bank0
+   775  01A9  0180               	clrf	0
+   776  01AA  29BA               	goto	l139
+   777  01AB                     l133:	
+   778  01AB  1886               	btfsc	6,1	;volatile
+   779  01AC  29AE               	goto	u1791
+   780  01AD  29AF               	goto	u1790
+   781  01AE                     u1791:	
+   782  01AE  29BA               	goto	l139
+   783  01AF                     u1790:	
+   784  01AF                     l1480:	
+   785  01AF  0821               	movf	UpLimitSW@timerflag,w
+   786  01B0  1903               	btfsc	3,2
+   787  01B1  29B3               	goto	u1801
+   788  01B2  29B4               	goto	u1800
+   789  01B3                     u1801:	
+   790  01B3  29BA               	goto	l139
+   791  01B4                     u1800:	
+   792  01B4                     l1482:	
+   793  01B4  0822               	movf	UpLimitSW@klock,w
+   794  01B5  1903               	btfsc	3,2
+   795  01B6  29B8               	goto	u1811
+   796  01B7  29B9               	goto	u1810
+   797  01B8                     u1811:	
+   798  01B8  29BA               	goto	l139
+   799  01B9                     u1810:	
+   800  01B9  2989               	goto	l1460
+   801  01BA                     l139:	
+   802  01BA  0008               	return
+   803  01BB                     __end_of_UpLimitSW:	
+   804                           
+   805                           	psect	text2
+   806  0092                     __ptext2:	
+   807 ;; *************** function _UpKeyPress *****************
+   808 ;; Defined at:
+   809 ;;		line 25 in file "chair-controll.c"
+   810 ;; Parameters:    Size  Location     Type
+   811 ;;  ptrflag         1    wreg     PTR struct .
+   812 ;;		 -> main@swflag(4), 
+   813 ;; Auto vars:     Size  Location     Type
+   814 ;;  ptrflag         1    3[COMMON] PTR struct .
+   815 ;;		 -> main@swflag(4), 
+   816 ;; Return value:  Size  Location     Type
+   817 ;;                  1    wreg      void 
+   818 ;; Registers used:
+   819 ;;		wreg, fsr0l, fsr0h, status,2, status,0
+   820 ;; Tracked objects:
+   821 ;;		On entry : 0/0
+   822 ;;		On exit  : 0/0
+   823 ;;		Unchanged: 0/0
+   824 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
+   825 ;;      Params:         0       0       0       0
+   826 ;;      Locals:         1       0       0       0
+   827 ;;      Temps:          1       0       0       0
+   828 ;;      Totals:         2       0       0       0
+   829 ;;Total ram usage:        2 bytes
+   830 ;; Hardware stack levels used:    1
+   831 ;; Hardware stack levels required when called:    1
+   832 ;; This function calls:
+   833 ;;		Nothing
+   834 ;; This function is called by:
+   835 ;;		_main
+   836 ;; This function uses a non-reentrant model
+   837 ;;
+   838                           
+   839                           
+   840                           ;psect for function _UpKeyPress
+   841  0092                     _UpKeyPress:	
+   842                           
+   843                           ;incstack = 0
+   844                           ; Regs used in _UpKeyPress: [wreg-fsr0h+status,2+status,0]
+   845                           ;UpKeyPress@ptrflag stored from wreg
+   846  0092  00F9               	movwf	UpKeyPress@ptrflag
+   847  0093                     l1346:	
+   848                           
+   849                           ;chair-controll.c: 25: void UpKeyPress(FLAGS *ptrflag);chair-controll.c: 26: {;chair-con
+      +                          troll.c: 27:     static char klock,timerflag;;chair-controll.c: 29:  if(!klock && !PORTB
+      +                          bits.RB2 && !ptrflag->down_button)
+   850  0093  0872               	movf	UpKeyPress@klock,w
+   851  0094  1D03               	btfss	3,2
+   852  0095  2897               	goto	u1421
+   853  0096  2898               	goto	u1420
+   854  0097                     u1421:	
+   855  0097  28C5               	goto	l1370
+   856  0098                     u1420:	
+   857  0098                     l1348:	
+   858  0098  1283               	bcf	3,5	;RP0=0, select bank0
+   859  0099  1303               	bcf	3,6	;RP1=0, select bank0
+   860  009A  1906               	btfsc	6,2	;volatile
+   861  009B  289D               	goto	u1431
+   862  009C  289E               	goto	u1430
+   863  009D                     u1431:	
+   864  009D  28C5               	goto	l1370
+   865  009E                     u1430:	
+   866  009E                     l1350:	
+   867  009E  0879               	movf	UpKeyPress@ptrflag,w
+   868  009F  0084               	movwf	4
+   869  00A0  1383               	bcf	3,7	;select IRP bank0
+   870  00A1  0800               	movf	0,w
+   871  00A2  1D03               	btfss	3,2
+   872  00A3  28A5               	goto	u1441
+   873  00A4  28A6               	goto	u1440
+   874  00A5                     u1441:	
+   875  00A5  28C5               	goto	l1370
+   876  00A6                     u1440:	
+   877  00A6                     l1352:	
+   878                           
+   879                           ;chair-controll.c: 30:  {;chair-controll.c: 31:   if(!timerflag)
+   880  00A6  0871               	movf	UpKeyPress@timerflag,w
+   881  00A7  1D03               	btfss	3,2
+   882  00A8  28AA               	goto	u1451
+   883  00A9  28AB               	goto	u1450
+   884  00AA                     u1451:	
+   885  00AA  28B2               	goto	l1358
+   886  00AB                     u1450:	
+   887  00AB                     l1354:	
+   888                           
+   889                           ;chair-controll.c: 32:   {;chair-controll.c: 33:    KlockTimerUp=9;
+   890  00AB  3009               	movlw	9
+   891  00AC  00F8               	movwf	??_UpKeyPress
+   892  00AD  0878               	movf	??_UpKeyPress,w
+   893  00AE  00F5               	movwf	_KlockTimerUp	;volatile
+   894  00AF                     l1356:	
+   895                           
+   896                           ;chair-controll.c: 34:    timerflag=1;
+   897  00AF  01F1               	clrf	UpKeyPress@timerflag
+   898  00B0  0AF1               	incf	UpKeyPress@timerflag,f
+   899                           
+   900                           ;chair-controll.c: 35:   }else
+   901  00B1  28F7               	goto	l58
+   902  00B2                     l1358:	
+   903                           
+   904                           ;chair-controll.c: 36:   {;chair-controll.c: 37:    if(!KlockTimerUp)
+   905  00B2  0875               	movf	_KlockTimerUp,w	;volatile
+   906  00B3  1D03               	btfss	3,2
+   907  00B4  28B6               	goto	u1461
+   908  00B5  28B7               	goto	u1460
+   909  00B6                     u1461:	
+   910  00B6  28F7               	goto	l58
+   911  00B7                     u1460:	
+   912  00B7                     l1360:	
+   913                           
+   914                           ;chair-controll.c: 38:    {;chair-controll.c: 39:                 if(!PORTBbits.RB2)
+   915  00B7  1906               	btfsc	6,2	;volatile
+   916  00B8  28BA               	goto	u1471
+   917  00B9  28BB               	goto	u1470
+   918  00BA                     u1471:	
+   919  00BA  28C3               	goto	l1368
+   920  00BB                     u1470:	
+   921  00BB                     l1362:	
+   922                           
+   923                           ;chair-controll.c: 40:                 {;chair-controll.c: 41:                     klock
+      +                          =1;
+   924  00BB  01F2               	clrf	UpKeyPress@klock
+   925  00BC  0AF2               	incf	UpKeyPress@klock,f
+   926  00BD                     l1364:	
+   927                           
+   928                           ;chair-controll.c: 42:                     timerflag=0;
+   929  00BD  01F1               	clrf	UpKeyPress@timerflag
+   930  00BE                     l1366:	
+   931                           
+   932                           ;chair-controll.c: 43:                     ptrflag->up_button=1;
+   933  00BE  0A79               	incf	UpKeyPress@ptrflag,w
+   934  00BF  0084               	movwf	4
+   935  00C0  0180               	clrf	0
+   936  00C1  0A80               	incf	0,f
+   937                           
+   938                           ;chair-controll.c: 44:                 }else
+   939  00C2  28F7               	goto	l58
+   940  00C3                     l1368:	
+   941                           
+   942                           ;chair-controll.c: 45:                 {;chair-controll.c: 46:                     timer
+      +                          flag=0;
+   943  00C3  01F1               	clrf	UpKeyPress@timerflag
+   944  00C4  28F7               	goto	l58
+   945  00C5                     l1370:	
+   946  00C5  0872               	movf	UpKeyPress@klock,w
+   947  00C6  1903               	btfsc	3,2
+   948  00C7  28C9               	goto	u1481
+   949  00C8  28CA               	goto	u1480
+   950  00C9                     u1481:	
+   951  00C9  28E6               	goto	l52
+   952  00CA                     u1480:	
+   953  00CA                     l1372:	
+   954  00CA  1283               	bcf	3,5	;RP0=0, select bank0
+   955  00CB  1303               	bcf	3,6	;RP1=0, select bank0
+   956  00CC  1D06               	btfss	6,2	;volatile
+   957  00CD  28CF               	goto	u1491
+   958  00CE  28D0               	goto	u1490
+   959  00CF                     u1491:	
+   960  00CF  28E6               	goto	l52
+   961  00D0                     u1490:	
+   962  00D0                     l1374:	
+   963                           
+   964                           ;chair-controll.c: 51:  {;chair-controll.c: 52:   if(!timerflag)
+   965  00D0  0871               	movf	UpKeyPress@timerflag,w
+   966  00D1  1D03               	btfss	3,2
+   967  00D2  28D4               	goto	u1501
+   968  00D3  28D5               	goto	u1500
+   969  00D4                     u1501:	
+   970  00D4  28D6               	goto	l1380
+   971  00D5                     u1500:	
+   972  00D5  28AB               	goto	l1354
+   973  00D6                     l1380:	
+   974                           
+   975                           ;chair-controll.c: 58:   {;chair-controll.c: 59:    if(!KlockTimerUp && PORTBbits.RB2)
+   976  00D6  0875               	movf	_KlockTimerUp,w	;volatile
+   977  00D7  1D03               	btfss	3,2
+   978  00D8  28DA               	goto	u1511
+   979  00D9  28DB               	goto	u1510
+   980  00DA                     u1511:	
+   981  00DA  28F7               	goto	l58
+   982  00DB                     u1510:	
+   983  00DB                     l1382:	
+   984  00DB  1D06               	btfss	6,2	;volatile
+   985  00DC  28DE               	goto	u1521
+   986  00DD  28DF               	goto	u1520
+   987  00DE                     u1521:	
+   988  00DE  28F7               	goto	l58
+   989  00DF                     u1520:	
+   990  00DF                     l1384:	
+   991                           
+   992                           ;chair-controll.c: 60:    {;chair-controll.c: 61:     klock=0;
+   993  00DF  01F2               	clrf	UpKeyPress@klock
+   994                           
+   995                           ;chair-controll.c: 62:     timerflag=0;
+   996  00E0  01F1               	clrf	UpKeyPress@timerflag
+   997  00E1                     l1386:	
+   998                           
+   999                           ;chair-controll.c: 63:                 ptrflag->up_button=0;
+  1000  00E1  0A79               	incf	UpKeyPress@ptrflag,w
+  1001  00E2  0084               	movwf	4
+  1002  00E3  1383               	bcf	3,7	;select IRP bank0
+  1003  00E4  0180               	clrf	0
+  1004  00E5  28F7               	goto	l58
+  1005  00E6                     l52:	
+  1006  00E6  1283               	bcf	3,5	;RP0=0, select bank0
+  1007  00E7  1303               	bcf	3,6	;RP1=0, select bank0
+  1008  00E8  1906               	btfsc	6,2	;volatile
+  1009  00E9  28EB               	goto	u1531
+  1010  00EA  28EC               	goto	u1530
+  1011  00EB                     u1531:	
+  1012  00EB  28F7               	goto	l58
+  1013  00EC                     u1530:	
+  1014  00EC                     l1388:	
+  1015  00EC  0871               	movf	UpKeyPress@timerflag,w
+  1016  00ED  1903               	btfsc	3,2
+  1017  00EE  28F0               	goto	u1541
+  1018  00EF  28F1               	goto	u1540
+  1019  00F0                     u1541:	
+  1020  00F0  28F7               	goto	l58
+  1021  00F1                     u1540:	
+  1022  00F1                     l1390:	
+  1023  00F1  0872               	movf	UpKeyPress@klock,w
+  1024  00F2  1903               	btfsc	3,2
+  1025  00F3  28F5               	goto	u1551
+  1026  00F4  28F6               	goto	u1550
+  1027  00F5                     u1551:	
+  1028  00F5  28F7               	goto	l58
+  1029  00F6                     u1550:	
+  1030  00F6  28C3               	goto	l1368
+  1031  00F7                     l58:	
+  1032  00F7  0008               	return
+  1033  00F8                     __end_of_UpKeyPress:	
+  1034                           
+  1035                           	psect	text3
+  1036  0266                     __ptext3:	
+  1037 ;; *************** function _InterruptConfig *****************
+  1038 ;; Defined at:
+  1039 ;;		line 7 in file "Interrupts.c"
+  1040 ;; Parameters:    Size  Location     Type
+  1041 ;;		None
+  1042 ;; Auto vars:     Size  Location     Type
+  1043 ;;		None
+  1044 ;; Return value:  Size  Location     Type
+  1045 ;;                  1    wreg      void 
+  1046 ;; Registers used:
+  1047 ;;		wreg, status,2, status,0
+  1048 ;; Tracked objects:
+  1049 ;;		On entry : 0/0
+  1050 ;;		On exit  : 0/0
+  1051 ;;		Unchanged: 0/0
+  1052 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
+  1053 ;;      Params:         0       0       0       0
+  1054 ;;      Locals:         0       0       0       0
+  1055 ;;      Temps:          0       0       0       0
+  1056 ;;      Totals:         0       0       0       0
+  1057 ;;Total ram usage:        0 bytes
+  1058 ;; Hardware stack levels used:    1
+  1059 ;; Hardware stack levels required when called:    1
+  1060 ;; This function calls:
+  1061 ;;		Nothing
+  1062 ;; This function is called by:
+  1063 ;;		_main
+  1064 ;; This function uses a non-reentrant model
+  1065 ;;
+  1066                           
+  1067                           
+  1068                           ;psect for function _InterruptConfig
+  1069  0266                     _InterruptConfig:	
+  1070  0266                     l1288:	
+  1071                           ;incstack = 0
+  1072                           ; Regs used in _InterruptConfig: [wreg+status,2+status,0]
+  1073                           
+  1074                           
+  1075                           ;Interrupts.c: 10:     OPTION_REGbits.T0CS=0;
+  1076  0266  1683               	bsf	3,5	;RP0=1, select bank1
+  1077  0267  1303               	bcf	3,6	;RP1=0, select bank1
+  1078  0268  1281               	bcf	1,5	;volatile
+  1079                           
+  1080                           ;Interrupts.c: 11:     OPTION_REGbits.PSA=0;
+  1081  0269  1181               	bcf	1,3	;volatile
+  1082  026A                     l1290:	
+  1083                           
+  1084                           ;Interrupts.c: 12:     OPTION_REGbits.PS=0b111;
+  1085  026A  3007               	movlw	7
+  1086  026B  0481               	iorwf	1,f	;volatile
+  1087  026C                     l1292:	
+  1088                           
+  1089                           ;Interrupts.c: 13:     INTCONbits.TMR0IE=1;
+  1090  026C  168B               	bsf	11,5	;volatile
+  1091  026D                     l1294:	
+  1092                           
+  1093                           ;Interrupts.c: 16:     INTCONbits.GIE=1;
+  1094  026D  178B               	bsf	11,7	;volatile
+  1095  026E                     l1296:	
+  1096                           
+  1097                           ;Interrupts.c: 17:     INTCONbits.PEIE=1;
+  1098  026E  170B               	bsf	11,6	;volatile
+  1099  026F                     l179:	
+  1100  026F  0008               	return
+  1101  0270                     __end_of_InterruptConfig:	
+  1102                           
+  1103                           	psect	text4
+  1104  0252                     __ptext4:	
+  1105 ;; *************** function _Global_Inits *****************
+  1106 ;; Defined at:
+  1107 ;;		line 4 in file "Inits.c"
+  1108 ;; Parameters:    Size  Location     Type
+  1109 ;;		None
+  1110 ;; Auto vars:     Size  Location     Type
+  1111 ;;		None
+  1112 ;; Return value:  Size  Location     Type
+  1113 ;;                  1    wreg      void 
+  1114 ;; Registers used:
+  1115 ;;		wreg, status,2, status,0
+  1116 ;; Tracked objects:
+  1117 ;;		On entry : 0/0
+  1118 ;;		On exit  : 0/0
+  1119 ;;		Unchanged: 0/0
+  1120 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
+  1121 ;;      Params:         0       0       0       0
+  1122 ;;      Locals:         0       0       0       0
+  1123 ;;      Temps:          0       0       0       0
+  1124 ;;      Totals:         0       0       0       0
+  1125 ;;Total ram usage:        0 bytes
+  1126 ;; Hardware stack levels used:    1
+  1127 ;; Hardware stack levels required when called:    1
+  1128 ;; This function calls:
+  1129 ;;		Nothing
+  1130 ;; This function is called by:
+  1131 ;;		_main
+  1132 ;; This function uses a non-reentrant model
+  1133 ;;
+  1134                           
+  1135                           
+  1136                           ;psect for function _Global_Inits
+  1137  0252                     _Global_Inits:	
+  1138  0252                     l1268:	
+  1139                           ;incstack = 0
+  1140                           ; Regs used in _Global_Inits: [wreg+status,2+status,0]
+  1141                           
+  1142                           
+  1143                           ;Inits.c: 8:     OSCCONbits.IRCF=0b111;
+  1144  0252  3070               	movlw	112
+  1145  0253  1683               	bsf	3,5	;RP0=1, select bank1
+  1146  0254  1303               	bcf	3,6	;RP1=0, select bank1
+  1147  0255  048F               	iorwf	15,f	;volatile
+  1148  0256                     l1270:	
+  1149                           
+  1150                           ;Inits.c: 11:     TRISB0=1;
+  1151  0256  1406               	bsf	6,0	;volatile
+  1152  0257                     l1272:	
+  1153                           
+  1154                           ;Inits.c: 12:     TRISB1=1;
+  1155  0257  1486               	bsf	6,1	;volatile
+  1156  0258                     l1274:	
+  1157                           
+  1158                           ;Inits.c: 13:     TRISB2=1;
+  1159  0258  1506               	bsf	6,2	;volatile
+  1160  0259                     l1276:	
+  1161                           
+  1162                           ;Inits.c: 14:     TRISB3=1;
+  1163  0259  1586               	bsf	6,3	;volatile
+  1164  025A                     l1278:	
+  1165                           
+  1166                           ;Inits.c: 15:     TRISA3=0;
+  1167  025A  1185               	bcf	5,3	;volatile
+  1168  025B                     l1280:	
+  1169                           
+  1170                           ;Inits.c: 16:     TRISA2=0;
+  1171  025B  1105               	bcf	5,2	;volatile
+  1172  025C                     l1282:	
+  1173                           
+  1174                           ;Inits.c: 17:     TRISB5=0;
+  1175  025C  1286               	bcf	6,5	;volatile
+  1176                           
+  1177                           ;Inits.c: 18:     ADCON1bits.PCFG=0b0111;
+  1178  025D  081F               	movf	31,w	;volatile
+  1179  025E  39F0               	andlw	-16
+  1180  025F  3807               	iorlw	7
+  1181  0260  009F               	movwf	31	;volatile
+  1182  0261                     l1284:	
+  1183                           
+  1184                           ;Inits.c: 20:     PORTAbits.RA3=0;
+  1185  0261  1283               	bcf	3,5	;RP0=0, select bank0
+  1186  0262  1303               	bcf	3,6	;RP1=0, select bank0
+  1187  0263  1185               	bcf	5,3	;volatile
+  1188  0264                     l1286:	
+  1189                           
+  1190                           ;Inits.c: 21:     PORTAbits.RA2=0;
+  1191  0264  1105               	bcf	5,2	;volatile
+  1192  0265                     l162:	
+  1193  0265  0008               	return
+  1194  0266                     __end_of_Global_Inits:	
+  1195                           
+  1196                           	psect	text5
+  1197  01BB                     __ptext5:	
+  1198 ;; *************** function _DownLimitSW *****************
+  1199 ;; Defined at:
+  1200 ;;		line 167 in file "chair-controll.c"
+  1201 ;; Parameters:    Size  Location     Type
+  1202 ;;  ptrflag         1    wreg     PTR struct .
+  1203 ;;		 -> main@swflag(4), 
+  1204 ;; Auto vars:     Size  Location     Type
+  1205 ;;  ptrflag         1    3[COMMON] PTR struct .
+  1206 ;;		 -> main@swflag(4), 
+  1207 ;; Return value:  Size  Location     Type
+  1208 ;;                  1    wreg      void 
+  1209 ;; Registers used:
+  1210 ;;		wreg, fsr0l, fsr0h, status,2, status,0
+  1211 ;; Tracked objects:
+  1212 ;;		On entry : 0/0
+  1213 ;;		On exit  : 0/0
+  1214 ;;		Unchanged: 0/0
+  1215 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
+  1216 ;;      Params:         0       0       0       0
+  1217 ;;      Locals:         1       0       0       0
+  1218 ;;      Temps:          1       0       0       0
+  1219 ;;      Totals:         2       0       0       0
+  1220 ;;Total ram usage:        2 bytes
+  1221 ;; Hardware stack levels used:    1
+  1222 ;; Hardware stack levels required when called:    1
+  1223 ;; This function calls:
+  1224 ;;		Nothing
+  1225 ;; This function is called by:
+  1226 ;;		_main
+  1227 ;; This function uses a non-reentrant model
+  1228 ;;
+  1229                           
+  1230                           
+  1231                           ;psect for function _DownLimitSW
+  1232  01BB                     _DownLimitSW:	
+  1233                           
+  1234                           ;incstack = 0
+  1235                           ; Regs used in _DownLimitSW: [wreg-fsr0h+status,2+status,0]
+  1236                           ;DownLimitSW@ptrflag stored from wreg
+  1237  01BB  00F9               	movwf	DownLimitSW@ptrflag
+  1238  01BC                     l1394:	
+  1239                           
+  1240                           ;chair-controll.c: 167: void DownLimitSW(FLAGS *ptrflag);chair-controll.c: 168: {;chair-
+      +                          controll.c: 169:     static char klock,timerflag;;chair-controll.c: 171:  if(!klock && !
+      +                          PORTBbits.RB0)
+  1241  01BC  1283               	bcf	3,5	;RP0=0, select bank0
+  1242  01BD  1303               	bcf	3,6	;RP1=0, select bank0
+  1243  01BE  0824               	movf	DownLimitSW@klock,w
+  1244  01BF  1D03               	btfss	3,2
+  1245  01C0  29C2               	goto	u1561
+  1246  01C1  29C3               	goto	u1560
+  1247  01C2                     u1561:	
+  1248  01C2  29E8               	goto	l1416
+  1249  01C3                     u1560:	
+  1250  01C3                     l1396:	
+  1251  01C3  1806               	btfsc	6,0	;volatile
+  1252  01C4  29C6               	goto	u1571
+  1253  01C5  29C7               	goto	u1570
+  1254  01C6                     u1571:	
+  1255  01C6  29E8               	goto	l1416
+  1256  01C7                     u1570:	
+  1257  01C7                     l1398:	
+  1258                           
+  1259                           ;chair-controll.c: 172:  {;chair-controll.c: 173:   if(!timerflag)
+  1260  01C7  0823               	movf	DownLimitSW@timerflag,w
+  1261  01C8  1D03               	btfss	3,2
+  1262  01C9  29CB               	goto	u1581
+  1263  01CA  29CC               	goto	u1580
+  1264  01CB                     u1581:	
+  1265  01CB  29D3               	goto	l1404
+  1266  01CC                     u1580:	
+  1267  01CC                     l1400:	
+  1268                           
+  1269                           ;chair-controll.c: 174:   {;chair-controll.c: 175:    LimitSwitchTimer=3;
+  1270  01CC  3003               	movlw	3
+  1271  01CD  00F8               	movwf	??_DownLimitSW
+  1272  01CE  0878               	movf	??_DownLimitSW,w
+  1273  01CF  00F3               	movwf	_LimitSwitchTimer	;volatile
+  1274  01D0                     l1402:	
+  1275                           
+  1276                           ;chair-controll.c: 176:    timerflag=1;
+  1277  01D0  01A3               	clrf	DownLimitSW@timerflag
+  1278  01D1  0AA3               	incf	DownLimitSW@timerflag,f
+  1279                           
+  1280                           ;chair-controll.c: 177:   }else
+  1281  01D2  2A17               	goto	l119
+  1282  01D3                     l1404:	
+  1283                           
+  1284                           ;chair-controll.c: 178:   {;chair-controll.c: 179:    if(!LimitSwitchTimer)
+  1285  01D3  0873               	movf	_LimitSwitchTimer,w	;volatile
+  1286  01D4  1D03               	btfss	3,2
+  1287  01D5  29D7               	goto	u1591
+  1288  01D6  29D8               	goto	u1590
+  1289  01D7                     u1591:	
+  1290  01D7  2A17               	goto	l119
+  1291  01D8                     u1590:	
+  1292  01D8                     l1406:	
+  1293                           
+  1294                           ;chair-controll.c: 180:    {;chair-controll.c: 181:                 if(!PORTBbits.RB0)
+  1295  01D8  1806               	btfsc	6,0	;volatile
+  1296  01D9  29DB               	goto	u1601
+  1297  01DA  29DC               	goto	u1600
+  1298  01DB                     u1601:	
+  1299  01DB  29E6               	goto	l1414
+  1300  01DC                     u1600:	
+  1301  01DC                     l1408:	
+  1302                           
+  1303                           ;chair-controll.c: 182:                 {;chair-controll.c: 183:                     klo
+      +                          ck=1;
+  1304  01DC  01A4               	clrf	DownLimitSW@klock
+  1305  01DD  0AA4               	incf	DownLimitSW@klock,f
+  1306  01DE                     l1410:	
+  1307                           
+  1308                           ;chair-controll.c: 184:                     timerflag=0;
+  1309  01DE  01A3               	clrf	DownLimitSW@timerflag
+  1310  01DF                     l1412:	
+  1311                           
+  1312                           ;chair-controll.c: 185:                     ptrflag->down_limit_sw=1;
+  1313  01DF  0879               	movf	DownLimitSW@ptrflag,w
+  1314  01E0  3E02               	addlw	2
+  1315  01E1  0084               	movwf	4
+  1316  01E2  1383               	bcf	3,7	;select IRP bank0
+  1317  01E3  0180               	clrf	0
+  1318  01E4  0A80               	incf	0,f
+  1319                           
+  1320                           ;chair-controll.c: 186:                 }else
+  1321  01E5  2A17               	goto	l119
+  1322  01E6                     l1414:	
+  1323                           
+  1324                           ;chair-controll.c: 187:                 {;chair-controll.c: 188:                     tim
+      +                          erflag=0;
+  1325  01E6  01A3               	clrf	DownLimitSW@timerflag
+  1326  01E7  2A17               	goto	l119
+  1327  01E8                     l1416:	
+  1328  01E8  0824               	movf	DownLimitSW@klock,w
+  1329  01E9  1903               	btfsc	3,2
+  1330  01EA  29EC               	goto	u1611
+  1331  01EB  29ED               	goto	u1610
+  1332  01EC                     u1611:	
+  1333  01EC  2A08               	goto	l113
+  1334  01ED                     u1610:	
+  1335  01ED                     l1418:	
+  1336  01ED  1C06               	btfss	6,0	;volatile
+  1337  01EE  29F0               	goto	u1621
+  1338  01EF  29F1               	goto	u1620
+  1339  01F0                     u1621:	
+  1340  01F0  2A08               	goto	l113
+  1341  01F1                     u1620:	
+  1342  01F1                     l1420:	
+  1343                           
+  1344                           ;chair-controll.c: 193:  {;chair-controll.c: 194:   if(!timerflag)
+  1345  01F1  0823               	movf	DownLimitSW@timerflag,w
+  1346  01F2  1D03               	btfss	3,2
+  1347  01F3  29F5               	goto	u1631
+  1348  01F4  29F6               	goto	u1630
+  1349  01F5                     u1631:	
+  1350  01F5  29F7               	goto	l1426
+  1351  01F6                     u1630:	
+  1352  01F6  29CC               	goto	l1400
+  1353  01F7                     l1426:	
+  1354                           
+  1355                           ;chair-controll.c: 200:   {;chair-controll.c: 201:    if(!LimitSwitchTimer && PORTBbits.
+      +                          RB0)
+  1356  01F7  0873               	movf	_LimitSwitchTimer,w	;volatile
+  1357  01F8  1D03               	btfss	3,2
+  1358  01F9  29FB               	goto	u1641
+  1359  01FA  29FC               	goto	u1640
+  1360  01FB                     u1641:	
+  1361  01FB  2A17               	goto	l119
+  1362  01FC                     u1640:	
+  1363  01FC                     l1428:	
+  1364  01FC  1C06               	btfss	6,0	;volatile
+  1365  01FD  29FF               	goto	u1651
+  1366  01FE  2A00               	goto	u1650
+  1367  01FF                     u1651:	
+  1368  01FF  2A17               	goto	l119
+  1369  0200                     u1650:	
+  1370  0200                     l1430:	
+  1371                           
+  1372                           ;chair-controll.c: 202:    {;chair-controll.c: 203:     klock=0;
+  1373  0200  01A4               	clrf	DownLimitSW@klock
+  1374                           
+  1375                           ;chair-controll.c: 204:     timerflag=0;
+  1376  0201  01A3               	clrf	DownLimitSW@timerflag
+  1377  0202                     l1432:	
+  1378                           
+  1379                           ;chair-controll.c: 205:                 ptrflag->down_limit_sw=0;
+  1380  0202  0879               	movf	DownLimitSW@ptrflag,w
+  1381  0203  3E02               	addlw	2
+  1382  0204  0084               	movwf	4
+  1383  0205  1383               	bcf	3,7	;select IRP bank0
+  1384  0206  0180               	clrf	0
+  1385  0207  2A17               	goto	l119
+  1386  0208                     l113:	
+  1387  0208  1806               	btfsc	6,0	;volatile
+  1388  0209  2A0B               	goto	u1661
+  1389  020A  2A0C               	goto	u1660
+  1390  020B                     u1661:	
+  1391  020B  2A17               	goto	l119
+  1392  020C                     u1660:	
+  1393  020C                     l1434:	
+  1394  020C  0823               	movf	DownLimitSW@timerflag,w
+  1395  020D  1903               	btfsc	3,2
+  1396  020E  2A10               	goto	u1671
+  1397  020F  2A11               	goto	u1670
+  1398  0210                     u1671:	
+  1399  0210  2A17               	goto	l119
+  1400  0211                     u1670:	
+  1401  0211                     l1436:	
+  1402  0211  0824               	movf	DownLimitSW@klock,w
+  1403  0212  1903               	btfsc	3,2
+  1404  0213  2A15               	goto	u1681
+  1405  0214  2A16               	goto	u1680
+  1406  0215                     u1681:	
+  1407  0215  2A17               	goto	l119
+  1408  0216                     u1680:	
+  1409  0216  29E6               	goto	l1414
+  1410  0217                     l119:	
+  1411  0217  0008               	return
+  1412  0218                     __end_of_DownLimitSW:	
+  1413                           
+  1414                           	psect	text6
+  1415  00F8                     __ptext6:	
+  1416 ;; *************** function _DownKeyPress *****************
+  1417 ;; Defined at:
+  1418 ;;		line 80 in file "chair-controll.c"
+  1419 ;; Parameters:    Size  Location     Type
+  1420 ;;  ptrflag         1    wreg     PTR struct .
+  1421 ;;		 -> main@swflag(4), 
+  1422 ;; Auto vars:     Size  Location     Type
+  1423 ;;  ptrflag         1    3[COMMON] PTR struct .
+  1424 ;;		 -> main@swflag(4), 
+  1425 ;; Return value:  Size  Location     Type
+  1426 ;;                  1    wreg      void 
+  1427 ;; Registers used:
+  1428 ;;		wreg, fsr0l, fsr0h, status,2, status,0
+  1429 ;; Tracked objects:
+  1430 ;;		On entry : 0/0
+  1431 ;;		On exit  : 0/0
+  1432 ;;		Unchanged: 0/0
+  1433 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
+  1434 ;;      Params:         0       0       0       0
+  1435 ;;      Locals:         1       0       0       0
+  1436 ;;      Temps:          1       0       0       0
+  1437 ;;      Totals:         2       0       0       0
+  1438 ;;Total ram usage:        2 bytes
+  1439 ;; Hardware stack levels used:    1
+  1440 ;; Hardware stack levels required when called:    1
+  1441 ;; This function calls:
+  1442 ;;		Nothing
+  1443 ;; This function is called by:
+  1444 ;;		_main
+  1445 ;; This function uses a non-reentrant model
+  1446 ;;
+  1447                           
+  1448                           
+  1449                           ;psect for function _DownKeyPress
+  1450  00F8                     _DownKeyPress:	
+  1451                           
+  1452                           ;incstack = 0
+  1453                           ; Regs used in _DownKeyPress: [wreg-fsr0h+status,2+status,0]
+  1454                           ;DownKeyPress@ptrflag stored from wreg
+  1455  00F8  00F9               	movwf	DownKeyPress@ptrflag
+  1456  00F9                     l1298:	
+  1457                           
+  1458                           ;chair-controll.c: 80: void DownKeyPress(FLAGS *ptrflag);chair-controll.c: 81: {;chair-c
+      +                          ontroll.c: 82:     static char klock,timerflag;;chair-controll.c: 84:  if(!klock && !POR
+      +                          TBbits.RB3 && !ptrflag->up_button)
+  1459  00F9  0870               	movf	DownKeyPress@klock,w
+  1460  00FA  1D03               	btfss	3,2
+  1461  00FB  28FD               	goto	u1281
+  1462  00FC  28FE               	goto	u1280
+  1463  00FD                     u1281:	
+  1464  00FD  292B               	goto	l1322
+  1465  00FE                     u1280:	
+  1466  00FE                     l1300:	
+  1467  00FE  1283               	bcf	3,5	;RP0=0, select bank0
+  1468  00FF  1303               	bcf	3,6	;RP1=0, select bank0
+  1469  0100  1986               	btfsc	6,3	;volatile
+  1470  0101  2903               	goto	u1291
+  1471  0102  2904               	goto	u1290
+  1472  0103                     u1291:	
+  1473  0103  292B               	goto	l1322
+  1474  0104                     u1290:	
+  1475  0104                     l1302:	
+  1476  0104  0A79               	incf	DownKeyPress@ptrflag,w
+  1477  0105  0084               	movwf	4
+  1478  0106  1383               	bcf	3,7	;select IRP bank0
+  1479  0107  0800               	movf	0,w
+  1480  0108  1D03               	btfss	3,2
+  1481  0109  290B               	goto	u1301
+  1482  010A  290C               	goto	u1300
+  1483  010B                     u1301:	
+  1484  010B  292B               	goto	l1322
+  1485  010C                     u1300:	
+  1486  010C                     l1304:	
+  1487                           
+  1488                           ;chair-controll.c: 85:  {;chair-controll.c: 86:   if(!timerflag)
+  1489  010C  0827               	movf	DownKeyPress@timerflag,w
+  1490  010D  1D03               	btfss	3,2
+  1491  010E  2910               	goto	u1311
+  1492  010F  2911               	goto	u1310
+  1493  0110                     u1311:	
+  1494  0110  2918               	goto	l1310
+  1495  0111                     u1310:	
+  1496  0111                     l1306:	
+  1497                           
+  1498                           ;chair-controll.c: 87:   {;chair-controll.c: 88:    KlockTimerDown=9;
+  1499  0111  3009               	movlw	9
+  1500  0112  00F8               	movwf	??_DownKeyPress
+  1501  0113  0878               	movf	??_DownKeyPress,w
+  1502  0114  00F4               	movwf	_KlockTimerDown	;volatile
+  1503  0115                     l1308:	
+  1504                           
+  1505                           ;chair-controll.c: 89:    timerflag=1;
+  1506  0115  01A7               	clrf	DownKeyPress@timerflag
+  1507  0116  0AA7               	incf	DownKeyPress@timerflag,f
+  1508                           
+  1509                           ;chair-controll.c: 90:   }else
+  1510  0117  295D               	goto	l78
+  1511  0118                     l1310:	
+  1512                           
+  1513                           ;chair-controll.c: 91:   {;chair-controll.c: 92:    if(!KlockTimerDown)
+  1514  0118  0874               	movf	_KlockTimerDown,w	;volatile
+  1515  0119  1D03               	btfss	3,2
+  1516  011A  291C               	goto	u1321
+  1517  011B  291D               	goto	u1320
+  1518  011C                     u1321:	
+  1519  011C  295D               	goto	l78
+  1520  011D                     u1320:	
+  1521  011D                     l1312:	
+  1522                           
+  1523                           ;chair-controll.c: 93:    {;chair-controll.c: 94:                 if(!PORTBbits.RB3)
+  1524  011D  1986               	btfsc	6,3	;volatile
+  1525  011E  2920               	goto	u1331
+  1526  011F  2921               	goto	u1330
+  1527  0120                     u1331:	
+  1528  0120  2929               	goto	l1320
+  1529  0121                     u1330:	
+  1530  0121                     l1314:	
+  1531                           
+  1532                           ;chair-controll.c: 95:                 {;chair-controll.c: 96:                     klock
+      +                          =1;
+  1533  0121  01F0               	clrf	DownKeyPress@klock
+  1534  0122  0AF0               	incf	DownKeyPress@klock,f
+  1535  0123                     l1316:	
+  1536                           
+  1537                           ;chair-controll.c: 97:                     timerflag=0;
+  1538  0123  01A7               	clrf	DownKeyPress@timerflag
+  1539  0124                     l1318:	
+  1540                           
+  1541                           ;chair-controll.c: 98:                     ptrflag->down_button=1;
+  1542  0124  0879               	movf	DownKeyPress@ptrflag,w
+  1543  0125  0084               	movwf	4
+  1544  0126  0180               	clrf	0
+  1545  0127  0A80               	incf	0,f
+  1546                           
+  1547                           ;chair-controll.c: 99:                 }else
+  1548  0128  295D               	goto	l78
+  1549  0129                     l1320:	
+  1550                           
+  1551                           ;chair-controll.c: 100:                 {;chair-controll.c: 101:                      ti
+      +                          merflag=0;
+  1552  0129  01A7               	clrf	DownKeyPress@timerflag
+  1553  012A  295D               	goto	l78
+  1554  012B                     l1322:	
+  1555  012B  0870               	movf	DownKeyPress@klock,w
+  1556  012C  1903               	btfsc	3,2
+  1557  012D  292F               	goto	u1341
+  1558  012E  2930               	goto	u1340
+  1559  012F                     u1341:	
+  1560  012F  294C               	goto	l72
+  1561  0130                     u1340:	
+  1562  0130                     l1324:	
+  1563  0130  1283               	bcf	3,5	;RP0=0, select bank0
+  1564  0131  1303               	bcf	3,6	;RP1=0, select bank0
+  1565  0132  1D86               	btfss	6,3	;volatile
+  1566  0133  2935               	goto	u1351
+  1567  0134  2936               	goto	u1350
+  1568  0135                     u1351:	
+  1569  0135  294C               	goto	l72
+  1570  0136                     u1350:	
+  1571  0136                     l1326:	
+  1572                           
+  1573                           ;chair-controll.c: 106:  {;chair-controll.c: 107:   if(!timerflag)
+  1574  0136  0827               	movf	DownKeyPress@timerflag,w
+  1575  0137  1D03               	btfss	3,2
+  1576  0138  293A               	goto	u1361
+  1577  0139  293B               	goto	u1360
+  1578  013A                     u1361:	
+  1579  013A  293C               	goto	l1332
+  1580  013B                     u1360:	
+  1581  013B  2911               	goto	l1306
+  1582  013C                     l1332:	
+  1583                           
+  1584                           ;chair-controll.c: 113:   {;chair-controll.c: 114:    if(!KlockTimerDown && PORTBbits.RB
+      +                          3)
+  1585  013C  0874               	movf	_KlockTimerDown,w	;volatile
+  1586  013D  1D03               	btfss	3,2
+  1587  013E  2940               	goto	u1371
+  1588  013F  2941               	goto	u1370
+  1589  0140                     u1371:	
+  1590  0140  295D               	goto	l78
+  1591  0141                     u1370:	
+  1592  0141                     l1334:	
+  1593  0141  1D86               	btfss	6,3	;volatile
+  1594  0142  2944               	goto	u1381
+  1595  0143  2945               	goto	u1380
+  1596  0144                     u1381:	
+  1597  0144  295D               	goto	l78
+  1598  0145                     u1380:	
+  1599  0145                     l1336:	
+  1600                           
+  1601                           ;chair-controll.c: 115:    {;chair-controll.c: 116:     klock=0;
+  1602  0145  01F0               	clrf	DownKeyPress@klock
+  1603                           
+  1604                           ;chair-controll.c: 117:     timerflag=0;
+  1605  0146  01A7               	clrf	DownKeyPress@timerflag
+  1606  0147                     l1338:	
+  1607                           
+  1608                           ;chair-controll.c: 118:                 ptrflag->down_button=0;
+  1609  0147  0879               	movf	DownKeyPress@ptrflag,w
+  1610  0148  0084               	movwf	4
+  1611  0149  1383               	bcf	3,7	;select IRP bank0
+  1612  014A  0180               	clrf	0
+  1613  014B  295D               	goto	l78
+  1614  014C                     l72:	
+  1615  014C  1283               	bcf	3,5	;RP0=0, select bank0
+  1616  014D  1303               	bcf	3,6	;RP1=0, select bank0
+  1617  014E  1986               	btfsc	6,3	;volatile
+  1618  014F  2951               	goto	u1391
+  1619  0150  2952               	goto	u1390
+  1620  0151                     u1391:	
+  1621  0151  295D               	goto	l78
+  1622  0152                     u1390:	
+  1623  0152                     l1340:	
+  1624  0152  0827               	movf	DownKeyPress@timerflag,w
+  1625  0153  1903               	btfsc	3,2
+  1626  0154  2956               	goto	u1401
+  1627  0155  2957               	goto	u1400
+  1628  0156                     u1401:	
+  1629  0156  295D               	goto	l78
+  1630  0157                     u1400:	
+  1631  0157                     l1342:	
+  1632  0157  0870               	movf	DownKeyPress@klock,w
+  1633  0158  1903               	btfsc	3,2
+  1634  0159  295B               	goto	u1411
+  1635  015A  295C               	goto	u1410
+  1636  015B                     u1411:	
+  1637  015B  295D               	goto	l78
+  1638  015C                     u1410:	
+  1639  015C  2929               	goto	l1320
+  1640  015D                     l78:	
+  1641  015D  0008               	return
+  1642  015E                     __end_of_DownKeyPress:	
+  1643                           
+  1644                           	psect	text7
+  1645  001D                     __ptext7:	
+  1646 ;; *************** function _CheckFlagStatus *****************
+  1647 ;; Defined at:
+  1648 ;;		line 134 in file "chair-controll.c"
+  1649 ;; Parameters:    Size  Location     Type
+  1650 ;;  ptrflag         1    wreg     PTR struct .
+  1651 ;;		 -> main@swflag(4), 
+  1652 ;; Auto vars:     Size  Location     Type
+  1653 ;;  ptrflag         1    2[COMMON] PTR struct .
+  1654 ;;		 -> main@swflag(4), 
+  1655 ;; Return value:  Size  Location     Type
+  1656 ;;                  1    wreg      void 
+  1657 ;; Registers used:
+  1658 ;;		wreg, fsr0l, fsr0h, status,2, status,0
+  1659 ;; Tracked objects:
+  1660 ;;		On entry : 0/0
+  1661 ;;		On exit  : 0/0
+  1662 ;;		Unchanged: 0/0
+  1663 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
+  1664 ;;      Params:         0       0       0       0
+  1665 ;;      Locals:         1       0       0       0
+  1666 ;;      Temps:          0       0       0       0
+  1667 ;;      Totals:         1       0       0       0
+  1668 ;;Total ram usage:        1 bytes
+  1669 ;; Hardware stack levels used:    1
+  1670 ;; Hardware stack levels required when called:    1
+  1671 ;; This function calls:
+  1672 ;;		Nothing
+  1673 ;; This function is called by:
+  1674 ;;		_main
+  1675 ;; This function uses a non-reentrant model
+  1676 ;;
+  1677                           
+  1678                           
+  1679                           ;psect for function _CheckFlagStatus
+  1680  001D                     _CheckFlagStatus:	
+  1681                           
+  1682                           ;incstack = 0
+  1683                           ; Regs used in _CheckFlagStatus: [wreg-fsr0h+status,2+status,0]
+  1684                           ;CheckFlagStatus@ptrflag stored from wreg
+  1685  001D  00F8               	movwf	CheckFlagStatus@ptrflag
+  1686  001E                     l1486:	
+  1687                           
+  1688                           ;chair-controll.c: 134: void CheckFlagStatus(FLAGS *ptrflag);chair-controll.c: 135: {;ch
+      +                          air-controll.c: 136:     static unsigned char down_button_lock=0, up_button_lock=0;;chai
+      +                          r-controll.c: 138:     if(ptrflag->down_button && !down_button_lock && !ptrflag->down_li
+      +                          mit_sw)
+  1689  001E  0878               	movf	CheckFlagStatus@ptrflag,w
+  1690  001F  0084               	movwf	4
+  1691  0020  1383               	bcf	3,7	;select IRP bank0
+  1692  0021  0800               	movf	0,w
+  1693  0022  1903               	btfsc	3,2
+  1694  0023  2825               	goto	u1821
+  1695  0024  2826               	goto	u1820
+  1696  0025                     u1821:	
+  1697  0025  2839               	goto	l1494
+  1698  0026                     u1820:	
+  1699  0026                     l1488:	
+  1700  0026  1283               	bcf	3,5	;RP0=0, select bank0
+  1701  0027  1303               	bcf	3,6	;RP1=0, select bank0
+  1702  0028  0826               	movf	CheckFlagStatus@down_button_lock,w
+  1703  0029  1D03               	btfss	3,2
+  1704  002A  282C               	goto	u1831
+  1705  002B  282D               	goto	u1830
+  1706  002C                     u1831:	
+  1707  002C  2839               	goto	l1494
+  1708  002D                     u1830:	
+  1709  002D                     l1490:	
+  1710  002D  0878               	movf	CheckFlagStatus@ptrflag,w
+  1711  002E  3E02               	addlw	2
+  1712  002F  0084               	movwf	4
+  1713  0030  0800               	movf	0,w
+  1714  0031  1D03               	btfss	3,2
+  1715  0032  2834               	goto	u1841
+  1716  0033  2835               	goto	u1840
+  1717  0034                     u1841:	
+  1718  0034  2839               	goto	l1494
+  1719  0035                     u1840:	
+  1720  0035                     l1492:	
+  1721                           
+  1722                           ;chair-controll.c: 139:     {;chair-controll.c: 140:         PORTAbits.RA2=1;
+  1723  0035  1505               	bsf	5,2	;volatile
+  1724                           
+  1725                           ;chair-controll.c: 141:         down_button_lock=1;
+  1726  0036  01A6               	clrf	CheckFlagStatus@down_button_lock
+  1727  0037  0AA6               	incf	CheckFlagStatus@down_button_lock,f
+  1728                           
+  1729                           ;chair-controll.c: 143:     }else if((!ptrflag->down_button && down_button_lock) || (ptr
+      +                          flag->down_limit_sw && down_button_lock))
+  1730  0038  2858               	goto	l1504
+  1731  0039                     l1494:	
+  1732  0039  0878               	movf	CheckFlagStatus@ptrflag,w
+  1733  003A  0084               	movwf	4
+  1734  003B  0800               	movf	0,w
+  1735  003C  1D03               	btfss	3,2
+  1736  003D  283F               	goto	u1851
+  1737  003E  2840               	goto	u1850
+  1738  003F                     u1851:	
+  1739  003F  2847               	goto	l1498
+  1740  0040                     u1850:	
+  1741  0040                     l1496:	
+  1742  0040  1283               	bcf	3,5	;RP0=0, select bank0
+  1743  0041  1303               	bcf	3,6	;RP1=0, select bank0
+  1744  0042  0826               	movf	CheckFlagStatus@down_button_lock,w
+  1745  0043  1D03               	btfss	3,2
+  1746  0044  2846               	goto	u1861
+  1747  0045  2847               	goto	u1860
+  1748  0046                     u1861:	
+  1749  0046  2856               	goto	l89
+  1750  0047                     u1860:	
+  1751  0047                     l1498:	
+  1752  0047  0878               	movf	CheckFlagStatus@ptrflag,w
+  1753  0048  3E02               	addlw	2
+  1754  0049  0084               	movwf	4
+  1755  004A  0800               	movf	0,w
+  1756  004B  1903               	btfsc	3,2
+  1757  004C  284E               	goto	u1871
+  1758  004D  284F               	goto	u1870
+  1759  004E                     u1871:	
+  1760  004E  2858               	goto	l1504
+  1761  004F                     u1870:	
+  1762  004F                     l1500:	
+  1763  004F  1283               	bcf	3,5	;RP0=0, select bank0
+  1764  0050  1303               	bcf	3,6	;RP1=0, select bank0
+  1765  0051  0826               	movf	CheckFlagStatus@down_button_lock,w
+  1766  0052  1903               	btfsc	3,2
+  1767  0053  2855               	goto	u1881
+  1768  0054  2856               	goto	u1880
+  1769  0055                     u1881:	
+  1770  0055  2858               	goto	l1504
+  1771  0056                     u1880:	
+  1772  0056                     l89:	
+  1773                           
+  1774                           ;chair-controll.c: 144:     {;chair-controll.c: 145:         PORTAbits.RA2=0;
+  1775  0056  1105               	bcf	5,2	;volatile
+  1776  0057                     l1502:	
+  1777                           
+  1778                           ;chair-controll.c: 146:         down_button_lock=0;
+  1779  0057  01A6               	clrf	CheckFlagStatus@down_button_lock
+  1780  0058                     l1504:	
+  1781                           
+  1782                           ;chair-controll.c: 149:     if(ptrflag->up_button && !up_button_lock && !ptrflag->up_lim
+      +                          it_sw)
+  1783  0058  0A78               	incf	CheckFlagStatus@ptrflag,w
+  1784  0059  0084               	movwf	4
+  1785  005A  0800               	movf	0,w
+  1786  005B  1903               	btfsc	3,2
+  1787  005C  285E               	goto	u1891
+  1788  005D  285F               	goto	u1890
+  1789  005E                     u1891:	
+  1790  005E  2872               	goto	l1512
+  1791  005F                     u1890:	
+  1792  005F                     l1506:	
+  1793  005F  1283               	bcf	3,5	;RP0=0, select bank0
+  1794  0060  1303               	bcf	3,6	;RP1=0, select bank0
+  1795  0061  0825               	movf	CheckFlagStatus@up_button_lock,w
+  1796  0062  1D03               	btfss	3,2
+  1797  0063  2865               	goto	u1901
+  1798  0064  2866               	goto	u1900
+  1799  0065                     u1901:	
+  1800  0065  2872               	goto	l1512
+  1801  0066                     u1900:	
+  1802  0066                     l1508:	
+  1803  0066  0878               	movf	CheckFlagStatus@ptrflag,w
+  1804  0067  3E03               	addlw	3
+  1805  0068  0084               	movwf	4
+  1806  0069  0800               	movf	0,w
+  1807  006A  1D03               	btfss	3,2
+  1808  006B  286D               	goto	u1911
+  1809  006C  286E               	goto	u1910
+  1810  006D                     u1911:	
+  1811  006D  2872               	goto	l1512
+  1812  006E                     u1910:	
+  1813  006E                     l1510:	
+  1814                           
+  1815                           ;chair-controll.c: 150:     {;chair-controll.c: 151:         PORTAbits.RA3=1;
+  1816  006E  1585               	bsf	5,3	;volatile
+  1817                           
+  1818                           ;chair-controll.c: 152:         up_button_lock=1;
+  1819  006F  01A5               	clrf	CheckFlagStatus@up_button_lock
+  1820  0070  0AA5               	incf	CheckFlagStatus@up_button_lock,f
+  1821                           
+  1822                           ;chair-controll.c: 154:     }else if((!ptrflag->up_button && up_button_lock) || (ptrflag
+      +                          ->up_limit_sw && up_button_lock))
+  1823  0071  2891               	goto	l99
+  1824  0072                     l1512:	
+  1825  0072  0A78               	incf	CheckFlagStatus@ptrflag,w
+  1826  0073  0084               	movwf	4
+  1827  0074  0800               	movf	0,w
+  1828  0075  1D03               	btfss	3,2
+  1829  0076  2878               	goto	u1921
+  1830  0077  2879               	goto	u1920
+  1831  0078                     u1921:	
+  1832  0078  2880               	goto	l1516
+  1833  0079                     u1920:	
+  1834  0079                     l1514:	
+  1835  0079  1283               	bcf	3,5	;RP0=0, select bank0
+  1836  007A  1303               	bcf	3,6	;RP1=0, select bank0
+  1837  007B  0825               	movf	CheckFlagStatus@up_button_lock,w
+  1838  007C  1D03               	btfss	3,2
+  1839  007D  287F               	goto	u1931
+  1840  007E  2880               	goto	u1930
+  1841  007F                     u1931:	
+  1842  007F  288F               	goto	l96
+  1843  0080                     u1930:	
+  1844  0080                     l1516:	
+  1845  0080  0878               	movf	CheckFlagStatus@ptrflag,w
+  1846  0081  3E03               	addlw	3
+  1847  0082  0084               	movwf	4
+  1848  0083  0800               	movf	0,w
+  1849  0084  1903               	btfsc	3,2
+  1850  0085  2887               	goto	u1941
+  1851  0086  2888               	goto	u1940
+  1852  0087                     u1941:	
+  1853  0087  2891               	goto	l99
+  1854  0088                     u1940:	
+  1855  0088                     l1518:	
+  1856  0088  1283               	bcf	3,5	;RP0=0, select bank0
+  1857  0089  1303               	bcf	3,6	;RP1=0, select bank0
+  1858  008A  0825               	movf	CheckFlagStatus@up_button_lock,w
+  1859  008B  1903               	btfsc	3,2
+  1860  008C  288E               	goto	u1951
+  1861  008D  288F               	goto	u1950
+  1862  008E                     u1951:	
+  1863  008E  2891               	goto	l99
+  1864  008F                     u1950:	
+  1865  008F                     l96:	
+  1866                           
+  1867                           ;chair-controll.c: 155:     {;chair-controll.c: 156:         PORTAbits.RA3=0;
+  1868  008F  1185               	bcf	5,3	;volatile
+  1869  0090                     l1520:	
+  1870                           
+  1871                           ;chair-controll.c: 157:         up_button_lock=0;
+  1872  0090  01A5               	clrf	CheckFlagStatus@up_button_lock
+  1873  0091                     l99:	
+  1874  0091  0008               	return
+  1875  0092                     __end_of_CheckFlagStatus:	
+  1876                           
+  1877                           	psect	text8
+  1878  0218                     __ptext8:	
+  1879 ;; *************** function _ISR *****************
+  1880 ;; Defined at:
+  1881 ;;		line 26 in file "Interrupts.c"
+  1882 ;; Parameters:    Size  Location     Type
+  1883 ;;		None
+  1884 ;; Auto vars:     Size  Location     Type
+  1885 ;;		None
+  1886 ;; Return value:  Size  Location     Type
+  1887 ;;                  1    wreg      void 
+  1888 ;; Registers used:
+  1889 ;;		wreg, status,2, status,0
+  1890 ;; Tracked objects:
+  1891 ;;		On entry : 0/0
+  1892 ;;		On exit  : 0/0
+  1893 ;;		Unchanged: 0/0
+  1894 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
+  1895 ;;      Params:         0       0       0       0
+  1896 ;;      Locals:         0       0       0       0
+  1897 ;;      Temps:          2       0       0       0
+  1898 ;;      Totals:         2       0       0       0
+  1899 ;;Total ram usage:        2 bytes
+  1900 ;; Hardware stack levels used:    1
+  1901 ;; This function calls:
+  1902 ;;		Nothing
+  1903 ;; This function is called by:
+  1904 ;;		Interrupt level 1
+  1905 ;; This function uses a non-reentrant model
+  1906 ;;
+  1907                           
+  1908                           
+  1909                           ;psect for function _ISR
+  1910  0218                     _ISR:	
+  1911  0218                     i1l1058:	
+  1912                           
+  1913                           ;Interrupts.c: 35:     if (TMR0IE && TMR0IF)
+  1914  0218  1E8B               	btfss	11,5	;volatile
+  1915  0219  2A1B               	goto	u69_21
+  1916  021A  2A1C               	goto	u69_20
+  1917  021B                     u69_21:	
+  1918  021B  2A36               	goto	i1l192
+  1919  021C                     u69_20:	
+  1920  021C                     i1l1060:	
+  1921  021C  1D0B               	btfss	11,2	;volatile
+  1922  021D  2A1F               	goto	u70_21
+  1923  021E  2A20               	goto	u70_20
+  1924  021F                     u70_21:	
+  1925  021F  2A36               	goto	i1l192
+  1926  0220                     u70_20:	
+  1927  0220                     i1l1062:	
+  1928                           
+  1929                           ;Interrupts.c: 36:     {;Interrupts.c: 38:         if(KlockTimerUp)
+  1930  0220  0875               	movf	_KlockTimerUp,w	;volatile
+  1931  0221  1903               	btfsc	3,2
+  1932  0222  2A24               	goto	u71_21
+  1933  0223  2A25               	goto	u71_20
+  1934  0224                     u71_21:	
+  1935  0224  2A27               	goto	i1l189
+  1936  0225                     u71_20:	
+  1937  0225                     i1l1064:	
+  1938                           
+  1939                           ;Interrupts.c: 39:         {;Interrupts.c: 40:             KlockTimerUp--;
+  1940  0225  3001               	movlw	1
+  1941  0226  02F5               	subwf	_KlockTimerUp,f	;volatile
+  1942  0227                     i1l189:	
+  1943                           ;Interrupts.c: 41:         }
+  1944                           
+  1945                           
+  1946                           ;Interrupts.c: 43:         if(KlockTimerDown)
+  1947  0227  0874               	movf	_KlockTimerDown,w	;volatile
+  1948  0228  1903               	btfsc	3,2
+  1949  0229  2A2B               	goto	u72_21
+  1950  022A  2A2C               	goto	u72_20
+  1951  022B                     u72_21:	
+  1952  022B  2A2E               	goto	i1l190
+  1953  022C                     u72_20:	
+  1954  022C                     i1l1066:	
+  1955                           
+  1956                           ;Interrupts.c: 44:         {;Interrupts.c: 45:             KlockTimerDown--;
+  1957  022C  3001               	movlw	1
+  1958  022D  02F4               	subwf	_KlockTimerDown,f	;volatile
+  1959  022E                     i1l190:	
+  1960                           ;Interrupts.c: 46:         }
+  1961                           
+  1962                           
+  1963                           ;Interrupts.c: 48:         if(LimitSwitchTimer)
+  1964  022E  0873               	movf	_LimitSwitchTimer,w	;volatile
+  1965  022F  1903               	btfsc	3,2
+  1966  0230  2A32               	goto	u73_21
+  1967  0231  2A33               	goto	u73_20
+  1968  0232                     u73_21:	
+  1969  0232  2A35               	goto	i1l1070
+  1970  0233                     u73_20:	
+  1971  0233                     i1l1068:	
+  1972                           
+  1973                           ;Interrupts.c: 49:         {;Interrupts.c: 50:             LimitSwitchTimer--;
+  1974  0233  3001               	movlw	1
+  1975  0234  02F3               	subwf	_LimitSwitchTimer,f	;volatile
+  1976  0235                     i1l1070:	
+  1977                           
+  1978                           ;Interrupts.c: 53:      TMR0IF=0;
+  1979  0235  110B               	bcf	11,2	;volatile
+  1980  0236                     i1l192:	
+  1981  0236  0877               	movf	??_ISR+1,w
+  1982  0237  008A               	movwf	10
+  1983  0238  0E76               	swapf	??_ISR^(0+4294967168),w
+  1984  0239  0083               	movwf	3
+  1985  023A  0EFE               	swapf	btemp,f
+  1986  023B  0E7E               	swapf	btemp,w
+  1987  023C  0009               	retfie
+  1988  023D                     __end_of_ISR:	
+  1989  007E                     btemp	set	126	;btemp
+  1990  007E                     wtemp0	set	126
+  1991                           
+  1992                           	psect	intentry
+  1993  0004                     __pintentry:	
+  1994                           ;incstack = 0
+  1995                           ; Regs used in _ISR: [wreg+status,2+status,0]
+  1996                           
+  1997  0004                     interrupt_function:	
+  1998  007E                     saved_w	set	btemp
+  1999  0004  00FE               	movwf	btemp
+  2000  0005  0E03               	swapf	3,w
+  2001  0006  00F6               	movwf	??_ISR
+  2002  0007  080A               	movf	10,w
+  2003  0008  00F7               	movwf	??_ISR+1
+  2004  0009  2A18               	ljmp	_ISR
+
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        0
+    BSS         14
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMMON           14      4      10
+    BANK0            80      4      12
+    BANK1            80      0       0
+    BANK2            80      0       0
+
+Pointer List with Targets:
+
+    UpLimitSW@ptrflag	PTR struct . size(1) Largest target is 4
+		 -> main@swflag(BANK0[4]), 
+
+    DownLimitSW@ptrflag	PTR struct . size(1) Largest target is 4
+		 -> main@swflag(BANK0[4]), 
+
+    CheckFlagStatus@ptrflag	PTR struct . size(1) Largest target is 4
+		 -> main@swflag(BANK0[4]), 
+
+    DownKeyPress@ptrflag	PTR struct . size(1) Largest target is 4
+		 -> main@swflag(BANK0[4]), 
+
+    UpKeyPress@ptrflag	PTR struct . size(1) Largest target is 4
+		 -> main@swflag(BANK0[4]), 
+
+
+Critical Paths under _main in COMMON
+
+    _main->_DownKeyPress
+    _main->_DownLimitSW
+    _main->_UpKeyPress
+    _main->_UpLimitSW
+
+Critical Paths under _ISR in COMMON
+
+    None.
+
+Critical Paths under _main in BANK0
+
+    None.
+
+Critical Paths under _ISR in BANK0
+
+    None.
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _ISR in BANK1
+
+    None.
+
+Critical Paths under _main in BANK2
+
+    None.
+
+Critical Paths under _ISR in BANK2
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 4     4      0    1050
+                                              0 BANK0      4     4      0
+                    _CheckFlagStatus
+                       _DownKeyPress
+                        _DownLimitSW
+                       _Global_Inits
+                    _InterruptConfig
+                         _UpKeyPress
+                          _UpLimitSW
+ ---------------------------------------------------------------------------------
+ (1) _UpLimitSW                                            2     2      0      98
+                                              2 COMMON     2     2      0
+ ---------------------------------------------------------------------------------
+ (1) _UpKeyPress                                           2     2      0      99
+                                              2 COMMON     2     2      0
+ ---------------------------------------------------------------------------------
+ (1) _InterruptConfig                                      0     0      0       0
+ ---------------------------------------------------------------------------------
+ (1) _Global_Inits                                         0     0      0       0
+ ---------------------------------------------------------------------------------
+ (1) _DownLimitSW                                          2     2      0      98
+                                              2 COMMON     2     2      0
+ ---------------------------------------------------------------------------------
+ (1) _DownKeyPress                                         2     2      0     129
+                                              2 COMMON     2     2      0
+ ---------------------------------------------------------------------------------
+ (1) _CheckFlagStatus                                      1     1      0     284
+                                              2 COMMON     1     1      0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 1
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (2) _ISR                                                  2     2      0       0
+                                              0 COMMON     2     2      0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 2
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _CheckFlagStatus
+   _DownKeyPress
+   _DownLimitSW
+   _Global_Inits
+   _InterruptConfig
+   _UpKeyPress
+   _UpLimitSW
+
+ _ISR (ROOT)
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BITCOMMON            E      0       0       0        0.0%
+EEDATA             100      0       0       0        0.0%
+NULL                 0      0       0       0        0.0%
+CODE                 0      0       0       0        0.0%
+COMMON               E      4       A       1       71.4%
+BITSFR0              0      0       0       1        0.0%
+SFR0                 0      0       0       1        0.0%
+BITSFR1              0      0       0       2        0.0%
+SFR1                 0      0       0       2        0.0%
+STACK                0      0       0       2        0.0%
+BANK0               50      4       C       3       15.0%
+BITBANK1            50      0       0       4        0.0%
+BITSFR3              0      0       0       4        0.0%
+SFR3                 0      0       0       4        0.0%
+BANK1               50      0       0       5        0.0%
+BITSFR2              0      0       0       5        0.0%
+SFR2                 0      0       0       5        0.0%
+BITBANK2            50      0       0       6        0.0%
+BANK2               50      0       0       7        0.0%
+ABS                  0      0      16       8        0.0%
+BITBANK0            50      0       0       9        0.0%
+DATA                 0      0      16      10        0.0%
+
+
+Microchip Technology PIC Macro Assembler V2.10 build 88905656 
+Symbol Table                                                                                   Mon Feb 17 17:55:32 2020
+
+                    __CFG_CP$OFF 0000                               l25 0245                               l52 00E6  
+                             l72 014C                               l58 00F7                               l78 015D  
+                             l96 008F                               l89 0056                               l99 0091  
+                            l113 0208                              l133 01AB                              l119 0217  
+                            l162 0265                              l139 01BA                              l179 026F  
+                   __CFG_CPD$OFF 0000                              _ISR 0218                              fsr0 0004  
+                            indf 0000                   ??_Global_Inits 0078                    ??_DownLimitSW 0078  
+                   __CFG_LVP$OFF 0000                             ?_ISR 0076                             l1300 00FE  
+                           l1310 0118                             l1302 0104                             l1320 0129  
+                           l1312 011D                             l1304 010C                             l1400 01CC  
+                           l1314 0121                             l1306 0111                             l1322 012B  
+                           l1410 01DE                             l1402 01D0                             l1500 004F  
+                           l1340 0152                             l1332 013C                             l1324 0130  
+                           l1316 0123                             l1308 0115                             l1420 01F1  
+                           l1412 01DF                             l1404 01D3                             l1510 006E  
+                           l1502 0057                             l1342 0157                             l1334 0141  
+                           l1326 0136                             l1318 0124                             l1430 0200  
+                           l1414 01E6                             l1406 01D8                             l1270 0256  
+                           l1350 009E                             l1520 0090                             l1512 0072  
+                           l1504 0058                             l1336 0145                             l1432 0202  
+                           l1408 01DC                             l1416 01E8                             l1280 025B  
+                           l1272 0257                             l1360 00B7                             l1352 00A6  
+                           l1440 015F                             l1514 0079                             l1506 005F  
+                           l1338 0147                             l1434 020C                             l1426 01F7  
+                           l1418 01ED                             l1282 025C                             l1274 0258  
+                           l1290 026A                             l1362 00BB                             l1354 00AB  
+                           l1370 00C5                             l1346 0093                             l1450 0176  
+                           l1442 0166                             l1530 0244                             l1522 023D  
+                           l1516 0080                             l1508 0066                             l1436 0211  
+                           l1428 01FC                             l1284 0261                             l1276 0259  
+                           l1268 0252                             l1292 026C                             l1380 00D6  
+                           l1372 00CA                             l1364 00BD                             l1356 00AF  
+                           l1348 0098                             l1460 0189                             l1452 017B  
+                           l1444 016A                             l1540 024E                             l1532 0246  
+                           l1524 023F                             l1518 0088                             l1286 0264  
+                           l1278 025A                             l1294 026D                             l1390 00F1  
+                           l1382 00DB                             l1374 00D0                             l1366 00BE  
+                           l1358 00B2                             l1454 017F                             l1446 016F  
+                           l1462 018B                             l1534 0248                             l1526 0242  
+                           l1296 026E                             l1288 0266                             l1384 00DF  
+                           l1368 00C3                             l1480 01AF                             l1472 019A  
+                           l1464 0190                             l1456 0181                             l1448 0173  
+                           l1536 024A                             l1528 0243                             l1490 002D  
+                           l1298 00F9                             l1394 01BC                             l1386 00E1  
+                           l1482 01B4                             l1474 019F                             l1466 0194  
+                           l1458 0182                             l1538 024C                             l1492 0035  
+                           l1396 01C3                             l1388 00EC                             l1476 01A3  
+                           l1494 0039                             l1486 001E                             l1398 01C7  
+                           l1478 01A5                             l1496 0040                             l1488 0026  
+                           l1498 0047                     __CFG_WDTE$ON 0000                             u1300 010C  
+                           u1301 010B                             u1310 0111                             u1311 0110  
+                           u1400 0157                             u1320 011D                             u1401 0156  
+                           u1321 011C                             u1410 015C                             u1330 0121  
+                           u1411 015B                             u1331 0120                             u1340 0130  
+                           u1500 00D5                             u1420 0098                             u1341 012F  
+                           u1501 00D4                             u1421 0097                             u1350 0136  
+                           u1510 00DB                             u1430 009E                             u1351 0135  
+                           u1511 00DA                             u1431 009D                             u1360 013B  
+                           u1280 00FE                             u1600 01DC                             u1520 00DF  
+                           u1440 00A6                             u1361 013A                             u1281 00FD  
+                           u1601 01DB                             u1521 00DE                             u1441 00A5  
+                           u1370 0141                             u1290 0104                             u1610 01ED  
+                           u1530 00EC                             u1450 00AB                             u1371 0140  
+                           u1291 0103                             u1611 01EC                             u1531 00EB  
+                           u1451 00AA                             u1380 0145                             u1620 01F1  
+                           u1540 00F1                             u1460 00B7                             u1700 016A  
+                           u1381 0144                             u1621 01F0                             u1541 00F0  
+                           u1461 00B6                             u1701 0169                             u1390 0152  
+                           u1630 01F6                             u1550 00F6                             u1470 00BB  
+                           u1710 016F                             u1391 0151                             u1631 01F5  
+                           u1551 00F5                             u1471 00BA                             u1711 016E  
+                           u1640 01FC                             u1560 01C3                             u1480 00CA  
+                           u1800 01B4                             u1720 017B                             u1641 01FB  
+                           u1561 01C2                             u1481 00C9                             u1801 01B3  
+                           u1721 017A                             u1650 0200                             u1570 01C7  
+                           u1490 00D0                             u1810 01B9                             u1730 017F  
+                           u1651 01FF                             u1571 01C6                             u1491 00CF  
+                           u1811 01B8                             u1731 017E                             u1900 0066  
+                           u1820 0026                             u1660 020C                             u1580 01CC  
+                           u1740 0190                             u1901 0065                             u1821 0025  
+                           u1661 020B                             u1581 01CB                             u1741 018F  
+                           u1910 006E                             u1830 002D                             u1670 0211  
+                           u1590 01D8                             u1750 0194                             u1911 006D  
+                           u1831 002C                             u1671 0210                             u1591 01D7  
+                           u1751 0193                             u1920 0079                             u1840 0035  
+                           u1680 0216                             u1760 0199                             u1921 0078  
+                           u1841 0034                             u1681 0215                             u1761 0198  
+                           u1930 0080                             u1850 0040                             u1770 019F  
+                           u1690 0166                             u1931 007F                             u1851 003F  
+                           u1771 019E                             u1691 0165                             u1940 0088  
+                           u1860 0047                             u1780 01A3                             u1941 0087  
+                           u1861 0046                             u1781 01A2                             u1950 008F  
+                           u1870 004F                             u1790 01AF                             u1951 008E  
+                           u1871 004E                             u1791 01AE                             u1880 0056  
+                           u1881 0055                             u1890 005F                             u1891 005E  
+                   __CFG_WRT$OFF 0000                             _main 023D                             btemp 007E  
+                  __CFG_BOREN$ON 0000                             start 000A                   ??_DownKeyPress 0078  
+                  __CFG_MCLRE$ON 0000                            ??_ISR 0076                            ?_main 0076  
+                          i1l190 022E                            i1l192 0236                            i1l189 0227  
+                          u70_20 0220                            u70_21 021F                            u71_20 0225  
+                          u71_21 0224                            u72_20 022C                            u72_21 022B  
+                          u73_20 0233                            u73_21 0232                            u69_20 021C  
+                          u69_21 021B                   __CFG_CCPMX$RB2 0000                            pclath 000A  
+            __end_of_DownLimitSW 0218                            status 0003                            wtemp0 007E  
+                __initialization 000B                DownKeyPress@klock 0070                     __end_of_main 0252  
+                     _KlockTimer 0020                           ??_main 007A                  _CheckFlagStatus 001D  
+                         i1l1060 021C                           i1l1070 0235                           i1l1062 0220  
+                         i1l1064 0225                           i1l1066 022C                           i1l1058 0218  
+                         i1l1068 0233                       _UpKeyPress 0092                           _TMR0IE 005D  
+                         _TMR0IF 005A                           _TRISB0 0430                           _TRISA2 042A  
+                         _TRISB1 0431                           _TRISA3 042B                           _TRISB2 0432  
+                         _TRISB3 0433                           _TRISB5 0435                   __CFG_PWRTE$OFF 0000  
+           __end_of_Global_Inits 0266                 DownLimitSW@klock 0024               __size_of_UpLimitSW 005D  
+           __end_of_DownKeyPress 015E                           saved_w 007E                      _DownLimitSW 01BB  
+          DownKeyPress@timerflag 0027                  _InterruptConfig 0266          __end_of__initialization 001B  
+                 __pcstackCOMMON 0076          __end_of_CheckFlagStatus 0092                   _OPTION_REGbits 0081  
+                     __pbssBANK0 0020                __end_of_UpLimitSW 01BB                      ?_UpKeyPress 0076  
+           DownLimitSW@timerflag 0023                       __pmaintext 023D                   _KlockTimerDown 0074  
+                     __pintentry 0004          __end_of_InterruptConfig 0270            __size_of_Global_Inits 0014  
+               ?_CheckFlagStatus 0076            __size_of_DownKeyPress 0066              __size_of_UpKeyPress 0066  
+                        __ptext1 015E                          __ptext2 0092                          __ptext3 0266  
+                        __ptext4 0252                          __ptext5 01BB                          __ptext6 00F8  
+                        __ptext7 001D                          __ptext8 0218                     __size_of_ISR 0025  
+                   _Global_Inits 0252             end_of_initialization 001B                     _DownKeyPress 00F8  
+                 UpLimitSW@klock 0022                        _PORTAbits 0005                        _PORTBbits 0006  
+               ?_InterruptConfig 0076                     ?_DownLimitSW 0076                       main@swflag 0028  
+            DownKeyPress@ptrflag 0079              start_initialization 000B                      __end_of_ISR 023D  
+                   ??_UpKeyPress 0078                     _KlockTimerUp 0075               UpLimitSW@timerflag 0021  
+                      _UpLimitSW 015E               __end_of_UpKeyPress 00F8                      __pbssCOMMON 0070  
+                      ___latbits 0000                    __pcstackBANK0 0028                 _LimitSwitchTimer 0073  
+         CheckFlagStatus@ptrflag 0078                       ?_UpLimitSW 0076                  UpKeyPress@klock 0072  
+              UpKeyPress@ptrflag 0079             __size_of_DownLimitSW 005D                interrupt_function 0004  
+                     _ADCON1bits 009F         __size_of_CheckFlagStatus 0075              UpKeyPress@timerflag 0071  
+                    ??_UpLimitSW 0078    CheckFlagStatus@up_button_lock 0025               DownLimitSW@ptrflag 0079  
+       __size_of_InterruptConfig 000A                    __size_of_main 0015  CheckFlagStatus@down_button_lock 0026  
+                     _INTCONbits 000B                 UpLimitSW@ptrflag 0079                         intlevel1 0000  
+              ??_CheckFlagStatus 0078                       _OSCCONbits 008F                    ?_Global_Inits 0076  
+             __CFG_FOSC$INTOSCIO 0000                    ?_DownKeyPress 0076                ??_InterruptConfig 0078  
